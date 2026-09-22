@@ -1,0 +1,66 @@
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ========================================
+   MAIN CONTENT
+======================================== */
+
+main {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+}
+
+
+
+
+/* ========================================
+   BACKGROUND VIDEO
+======================================== */
+
+.background-video-container {
+  position: fixed;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+.background-video {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  opacity: 0.08;
+}
+
+/* ========================================
+   IMAGES
+======================================== */
+
+img {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+  main > section {
+    min-height: 100vh;
+
+    padding: 100px 24px;
+  }
+}

@@ -1,0 +1,152 @@
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+/* LOGO CONTAINER */
+
+.logo-shield {
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+
+  position: relative;
+
+  width: 58px;
+  height: 58px;
+
+  cursor: pointer;
+
+  transition: transform 0.25s ease;
+}
+
+/* NORMAL SA LOGO */
+
+.logo-image {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+  object-fit: contain;
+}
+
+/* REFLECTION COPY */
+
+.logo-reflection-image {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  pointer-events: none;
+
+  opacity: 0;
+
+  /*
+    Makes the second copy brighter and more metallic.
+    Because this is another copy of the PNG,
+    transparent areas remain transparent.
+  */
+
+  filter:
+    brightness(2.5)
+    contrast(1.15)
+    drop-shadow(0 0 3px rgba(255, 255, 255, 0.35));
+
+  /*
+    Only reveal a small circular area around
+    the mouse position.
+  */
+
+  -webkit-mask-image: radial-gradient(
+    circle 15px at var(--mouse-x) var(--mouse-y),
+    black 0%,
+    rgba(0, 0, 0, 0.9) 25%,
+    rgba(0, 0, 0, 0.4) 55%,
+    transparent 100%
+  );
+
+  mask-image: radial-gradient(
+    circle 15px at var(--mouse-x) var(--mouse-y),
+    black 0%,
+    rgba(0, 0, 0, 0.9) 25%,
+    rgba(0, 0, 0, 0.4) 55%,
+    transparent 100%
+  );
+
+  transition: opacity 0.15s ease;
+}
+
+/* SHOW REFLECTION ONLY WHILE HOVERING */
+
+.logo-active .logo-reflection-image {
+  opacity: 1;
+}
+
+/* SLIGHT INTERACTION */
+
+.logo-active {
+  transform: scale(1.04);
+}
+
+/* BRAND NAME */
+
+.brand-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+
+  white-space: nowrap;
+}
+
+.brand-name span {
+  color: var(--accent);
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .logo-shield {
+    width: 45px;
+    height: 45px;
+  }
+
+  .brand-name {
+    font-size: 1rem;
+  }
+}
+
+/* Prevent text cursor / selection around logo */
+
+.brand,
+.logo-shield,
+.logo-shield img {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.brand {
+  caret-color: transparent;
+}
+
+/* Prevent logo from behaving like selectable/editable content */
+.logo,
+.logo img,
+.hero-logo,
+.hero-logo img {
+  user-select: none;
+  -webkit-user-select: none;
+
+  caret-color: transparent;
+
+  -webkit-user-drag: none;
+}

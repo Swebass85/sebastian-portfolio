@@ -1,0 +1,454 @@
+/* ========================================
+   ABOUT SECTION
+======================================== */
+
+.about {
+  width: 100%;
+  min-height: 100vh;
+
+  margin: 0;
+  padding: 140px 8%;
+
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  scroll-margin-top: 80px;
+}
+
+/* ========================================
+   MAIN ABOUT LAYOUT
+======================================== */
+
+.about-content {
+  width: 100%;
+  max-width: 1100px;
+
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: minmax(0, 700px) 220px;
+
+  column-gap: 90px;
+
+  justify-content: center;
+  align-items: center;
+}
+
+/* ========================================
+   TEXT COLUMN
+======================================== */
+
+.about-text {
+  width: 100%;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  text-align: left;
+}
+
+/* ========================================
+   ABOUT ME LABEL
+======================================== */
+
+.about .section-label {
+  width: auto;
+
+  margin: 0 0 22px;
+
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+
+  color: var(--accent);
+
+  text-align: left;
+}
+
+/* ========================================
+   MAIN HEADING
+======================================== */
+
+.about h2 {
+  width: 100%;
+  max-width: 700px;
+
+  margin: 0 0 35px;
+
+  font-size: clamp(2.4rem, 4vw, 3.5rem);
+  line-height: 1.15;
+
+  text-align: left;
+}
+
+/* ========================================
+   PARAGRAPHS
+======================================== */
+
+.about-text p:not(.section-label) {
+  width: 100%;
+  max-width: 700px;
+
+  margin: 0 0 22px;
+
+  font-size: 1.05rem;
+  line-height: 1.75;
+
+  color: var(--text-secondary);
+
+  text-align: left;
+}
+
+.about-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* ========================================
+   IMAGE COLUMN
+======================================== */
+
+.about-images {
+  width: 220px;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 30px;
+}
+
+/* ========================================
+   CIRCULAR IMAGE WRAPPER
+======================================== */
+
+.about-image-wrapper {
+  position: relative;
+
+  width: 200px;
+  height: 200px;
+
+  flex-shrink: 0;
+
+  box-sizing: border-box;
+
+  border-radius: 50%;
+  overflow: hidden;
+
+  border: 3px solid rgba(97, 218, 251, 0.45);
+
+  box-shadow:
+    0 0 15px rgba(17, 153, 250, 0.25),
+    0 0 35px rgba(17, 153, 250, 0.1);
+
+  transform: scale(1);
+
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s ease;
+
+  z-index: 1;
+}
+
+/* ========================================
+   BASE IMAGE
+======================================== */
+
+.about-image {
+  display: block;
+
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+
+  pointer-events: none;
+}
+
+/* ========================================
+   FIRST / PROFILE IMAGE
+======================================== */
+
+.about-image-wrapper:first-child {
+  transform: scale(1.5);
+
+  z-index: 5;
+
+  box-shadow:
+    0 0 25px rgba(17, 153, 250, 0.45),
+    0 0 55px rgba(17, 153, 250, 0.2);
+}
+
+.about-image-wrapper:first-child .about-image {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  transform: none;
+}
+
+/* ========================================
+   PROFILE HOVER
+======================================== */
+
+.about-image-wrapper:first-child:hover {
+  transform: scale(1.5);
+
+  z-index: 10;
+
+  box-shadow:
+    0 0 30px rgba(17, 153, 250, 0.6),
+    0 0 65px rgba(17, 153, 250, 0.3);
+}
+
+/* ========================================
+   INTERACTIVE IMAGES 2–4
+======================================== */
+
+.about-image-wrapper.interactive .about-image {
+  position: absolute;
+
+  width: 140%;
+  height: 140%;
+
+  left: -20%;
+  top: -20%;
+
+  max-width: none;
+
+  object-fit: cover;
+  object-position: center;
+
+  transform: translate(0, 0) scale(1);
+
+  transition: transform 0.12s ease-out;
+
+  will-change: transform;
+}
+
+/* ========================================
+   IMAGES 2 + 3
+   POSITIONED LOWER
+======================================== */
+
+.about-image-wrapper:nth-child(2) .about-image,
+.about-image-wrapper:nth-child(3) .about-image {
+  transform: translate(0, 60px) scale(1);
+}
+
+/* ========================================
+   IMAGE 4
+   KEEP CENTERED
+======================================== */
+
+.about-image-wrapper:nth-child(4) .about-image {
+  transform: translate(0, 0) scale(1);
+}
+
+/* ========================================
+   INTERACTIVE IMAGE HOVER
+======================================== */
+
+.about-image-wrapper.interactive:hover {
+  transform: scale(1.5);
+
+  z-index: 10;
+
+  box-shadow:
+    0 0 30px rgba(17, 153, 250, 0.6),
+    0 0 65px rgba(17, 153, 250, 0.3);
+}
+
+/* ========================================
+   SHRINK PROFILE WHEN ANOTHER
+   IMAGE IS HOVERED
+======================================== */
+
+.about-images:has(.about-image-wrapper.interactive:hover)
+  .about-image-wrapper:first-child {
+  transform: scale(1);
+
+  z-index: 1;
+
+  box-shadow:
+    0 0 15px rgba(17, 153, 250, 0.25),
+    0 0 35px rgba(17, 153, 250, 0.1);
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1100px) {
+  .about {
+    padding: 120px 6%;
+  }
+
+  .about-content {
+    max-width: 900px;
+
+    grid-template-columns: minmax(0, 1fr) 180px;
+
+    column-gap: 50px;
+  }
+
+  .about-images {
+    width: 180px;
+
+    gap: 28px;
+  }
+
+  .about-image-wrapper {
+    width: 165px;
+    height: 165px;
+  }
+
+  .about-image-wrapper:first-child {
+    transform: scale(1.4);
+  }
+
+  .about-image-wrapper:first-child:hover {
+    transform: scale(1.4);
+  }
+
+  .about-image-wrapper.interactive:hover {
+    transform: scale(1.4);
+  }
+
+  .about-images:has(.about-image-wrapper.interactive:hover)
+    .about-image-wrapper:first-child {
+    transform: scale(1);
+  }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+  .about {
+    min-height: auto;
+
+    padding: 100px 24px;
+
+    align-items: flex-start;
+  }
+
+  .about-content {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    max-width: 600px;
+
+    margin: 0 auto;
+
+    gap: 60px;
+  }
+
+  .about-text {
+    width: 100%;
+
+    align-items: flex-start;
+
+    text-align: left;
+  }
+
+  .about h2 {
+    font-size: clamp(2rem, 9vw, 3rem);
+
+    text-align: left;
+  }
+
+  .about-text p:not(.section-label) {
+    font-size: 1rem;
+
+    text-align: left;
+  }
+
+  .about-images {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(2, 130px);
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 45px;
+  }
+
+  .about-image-wrapper {
+    width: 130px;
+    height: 130px;
+  }
+
+  .about-image-wrapper:first-child {
+    transform: scale(1.35);
+  }
+
+  .about-image-wrapper:first-child:hover {
+    transform: scale(1.35);
+  }
+
+  .about-image-wrapper.interactive:hover {
+    transform: scale(1.35);
+  }
+
+  .about-images:has(.about-image-wrapper.interactive:hover)
+    .about-image-wrapper:first-child {
+    transform: scale(1);
+  }
+
+  /* Slightly smaller offset for smaller circles */
+
+  .about-image-wrapper:nth-child(2) .about-image,
+  .about-image-wrapper:nth-child(3) .about-image {
+    transform: translate(0, 40px) scale(1);
+  }
+}
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 400px) {
+  .about {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .about-images {
+    grid-template-columns: repeat(2, 110px);
+
+    gap: 40px;
+  }
+
+  .about-image-wrapper {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .about-image-wrapper,
+  .about-image {
+    transition: none;
+  }
+}

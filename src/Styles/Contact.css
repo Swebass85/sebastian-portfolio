@@ -1,0 +1,244 @@
+/* ========================================
+   CONTACT SECTION
+======================================== */
+
+.contact {
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 140px 8%;
+
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  scroll-margin-top: 80px;
+}
+
+.contact-content {
+  width: 100%;
+  max-width: 850px;
+
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+/* ========================================
+   SECTION LABEL
+======================================== */
+
+.contact .section-label {
+  margin: 0 0 20px;
+
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+
+  color: var(--accent);
+}
+
+/* ========================================
+   HEADING
+======================================== */
+
+.contact h2 {
+  margin: 0 0 20px;
+
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+}
+
+/* ========================================
+   INTRO
+======================================== */
+
+.contact-intro {
+  max-width: 650px;
+
+  margin: 0 auto 50px;
+
+  font-size: 1.05rem;
+  line-height: 1.7;
+
+  color: var(--text-secondary);
+}
+
+/* ========================================
+   FORM
+======================================== */
+
+.contact-form {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 25px;
+
+  text-align: left;
+}
+
+/* ========================================
+   NAME + EMAIL ROW
+======================================== */
+
+.contact-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 25px;
+}
+
+/* ========================================
+   FORM FIELD
+======================================== */
+
+.contact-field {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.contact-field label {
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  color: var(--text-primary);
+}
+
+/* ========================================
+   INPUT + TEXTAREA
+======================================== */
+
+.contact-field input,
+.contact-field textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 16px 18px;
+
+  font: inherit;
+
+  color: var(--text-primary);
+
+  background: rgba(255, 255, 255, 0.035);
+
+  border: 1px solid rgba(97, 218, 251, 0.2);
+  border-radius: 10px;
+
+  outline: none;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.contact-field textarea {
+  min-height: 180px;
+
+  resize: vertical;
+}
+
+/* ========================================
+   PLACEHOLDER
+======================================== */
+
+.contact-field input::placeholder,
+.contact-field textarea::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+/* ========================================
+   INPUT FOCUS
+======================================== */
+
+.contact-field input:focus,
+.contact-field textarea:focus {
+  border-color: var(--accent);
+
+  background: rgba(97, 218, 251, 0.04);
+
+  box-shadow:
+    0 0 0 3px rgba(97, 218, 251, 0.08),
+    0 0 25px rgba(17, 153, 250, 0.1);
+}
+
+/* ========================================
+   SEND BUTTON
+======================================== */
+
+.contact-button {
+  align-self: center;
+
+  min-width: 190px;
+
+  margin-top: 10px;
+  padding: 15px 30px;
+
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+
+  background: transparent;
+
+  color: var(--accent);
+
+  font: inherit;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.contact-button:hover {
+  transform: translateY(-3px);
+
+  background: var(--accent);
+
+  color: #07111a;
+
+  box-shadow:
+    0 0 20px rgba(97, 218, 251, 0.25),
+    0 0 45px rgba(17, 153, 250, 0.15);
+}
+
+.contact-button:active {
+  transform: translateY(0);
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+  .contact {
+    min-height: auto;
+
+    padding: 100px 24px;
+  }
+
+  .contact-content {
+    max-width: 600px;
+  }
+
+  .contact h2 {
+    font-size: clamp(2.2rem, 10vw, 3rem);
+  }
+
+  .contact-row {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-button {
+    width: 100%;
+  }
+}

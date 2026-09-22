@@ -1,0 +1,406 @@
+/* ========================================
+   PROJECTS SECTION
+======================================== */
+
+.projects {
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 140px 8%;
+
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
+
+  scroll-margin-top: 80px;
+}
+
+.projects-content {
+  width: 100%;
+  max-width: 1100px;
+
+  margin: 0 auto;
+}
+
+/* ========================================
+   SECTION HEADING
+======================================== */
+
+.projects-heading {
+  max-width: 750px;
+
+  margin: 0 auto 90px;
+
+  text-align: center;
+}
+
+.projects .section-label {
+  margin: 0 0 20px;
+
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+
+  color: var(--accent);
+}
+
+.projects h2 {
+  margin: 0 0 25px;
+
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+}
+
+.projects-intro {
+  margin: 0 auto;
+
+  max-width: 700px;
+
+  font-size: 1.05rem;
+  line-height: 1.75;
+
+  color: var(--text-secondary);
+}
+
+/* ========================================
+   PROJECT LIST
+======================================== */
+
+.projects-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 80px;
+}
+
+/* ========================================
+   PROJECT CARD
+======================================== */
+
+.project-card {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 60px;
+
+  align-items: center;
+
+  padding: 40px;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(97, 218, 251, 0.12);
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.02);
+
+  backdrop-filter: blur(6px);
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+
+  border-color: rgba(97, 218, 251, 0.35);
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.25),
+    0 0 40px rgba(17, 153, 250, 0.08);
+}
+
+/* Alternate project layout */
+
+.project-card:nth-child(even) .project-visual {
+  order: 2;
+}
+
+.project-card:nth-child(even) .project-info {
+  order: 1;
+}
+
+/* ========================================
+   PROJECT VISUAL
+======================================== */
+
+.project-visual {
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 16 / 10;
+
+  border-radius: 14px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(97, 218, 251, 0.18);
+
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(97, 218, 251, 0.12),
+      transparent 55%
+    ),
+    rgba(5, 15, 25, 0.75);
+}
+
+/* ========================================
+   PLACEHOLDER
+======================================== */
+
+.project-placeholder {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: clamp(1.4rem, 3vw, 2.3rem);
+  font-weight: 700;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  letter-spacing: 0.03em;
+}
+
+/* ========================================
+   PROJECT NUMBER
+======================================== */
+
+.project-number {
+  position: absolute;
+
+  top: 18px;
+  left: 20px;
+
+  z-index: 2;
+
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+
+  color: var(--accent);
+}
+
+/* ========================================
+   PROJECT INFORMATION
+======================================== */
+
+.project-info {
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  text-align: left;
+}
+
+.project-type {
+  margin: 0 0 12px;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  letter-spacing: 0.15em;
+
+  color: var(--accent);
+}
+
+.project-info h3 {
+  margin: 0 0 20px;
+
+  font-size: clamp(2rem, 4vw, 3rem);
+
+  line-height: 1.1;
+}
+
+.project-description {
+  margin: 0 0 25px;
+
+  font-size: 1rem;
+  line-height: 1.7;
+
+  color: var(--text-secondary);
+}
+
+/* ========================================
+   CONTRIBUTION
+======================================== */
+
+.project-contribution {
+  margin-bottom: 25px;
+
+  padding-left: 18px;
+
+  border-left: 2px solid rgba(97, 218, 251, 0.45);
+}
+
+.project-contribution h4 {
+  margin: 0 0 8px;
+
+  font-size: 0.9rem;
+
+  color: var(--text-primary);
+}
+
+.project-contribution p {
+  margin: 0;
+
+  font-size: 0.92rem;
+  line-height: 1.65;
+
+  color: var(--text-secondary);
+}
+
+/* ========================================
+   TECHNOLOGIES
+======================================== */
+
+.project-technologies {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 9px;
+
+  margin-bottom: 28px;
+}
+
+.project-technologies span {
+  padding: 7px 12px;
+
+  border: 1px solid rgba(97, 218, 251, 0.2);
+  border-radius: 999px;
+
+  background: rgba(97, 218, 251, 0.04);
+
+  font-size: 0.78rem;
+  font-weight: 600;
+
+  color: var(--accent);
+}
+
+/* ========================================
+   LINKS
+======================================== */
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 20px;
+}
+
+.project-links a {
+  position: relative;
+
+  padding-bottom: 4px;
+
+  text-decoration: none;
+
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  color: var(--text-primary);
+
+  transition: color 0.25s ease;
+}
+
+.project-links a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 0;
+  height: 1px;
+
+  background: var(--accent);
+
+  transition: width 0.25s ease;
+}
+
+.project-links a:hover {
+  color: var(--accent);
+}
+
+.project-links a:hover::after {
+  width: 100%;
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 900px) {
+  .projects {
+    padding: 120px 6%;
+  }
+
+  .projects-list {
+    gap: 60px;
+  }
+
+  .project-card {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+
+    padding: 30px;
+  }
+
+  .project-card:nth-child(even) .project-visual,
+  .project-card:nth-child(even) .project-info {
+    order: initial;
+  }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+  .projects {
+    padding: 100px 24px;
+  }
+
+  .projects-heading {
+    margin-bottom: 60px;
+  }
+
+  .projects h2 {
+    font-size: clamp(2.2rem, 10vw, 3rem);
+  }
+
+  .projects-intro {
+    font-size: 1rem;
+  }
+
+  .projects-list {
+    gap: 40px;
+  }
+
+  .project-card {
+    gap: 28px;
+
+    padding: 20px;
+
+    border-radius: 14px;
+  }
+
+  .project-info h3 {
+    font-size: 2rem;
+  }
+
+  .project-technologies {
+    margin-bottom: 22px;
+  }
+}

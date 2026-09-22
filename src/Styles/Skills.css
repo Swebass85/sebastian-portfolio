@@ -1,0 +1,283 @@
+.skills {
+  width: 100%;
+  min-height: 100vh;
+
+  max-width: 1100px;
+  margin: 0 auto;
+
+  padding: 100px 40px 80px;
+
+  box-sizing: border-box;
+
+  scroll-margin-top: 80px;
+
+  text-align: center;
+}
+
+.skills-content {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ========================================
+   SECTION HEADING
+======================================== */
+
+.skills .section-label {
+  width: 100%;
+
+  margin: 0 0 20px;
+
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+
+  color: var(--accent);
+
+  text-align: center;
+}
+
+.skills h2 {
+  width: 100%;
+  max-width: 850px;
+
+  margin: 0 auto 20px;
+
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.2;
+
+  text-align: center;
+}
+
+.skills-intro {
+  width: 100%;
+  max-width: 650px;
+
+  margin: 0 auto 60px;
+
+  font-size: 1.1rem;
+  line-height: 1.7;
+
+  color: var(--text-secondary);
+
+  text-align: center;
+}
+
+/* ========================================
+   SKILL CATEGORIES
+======================================== */
+
+.skills-category {
+  width: 100%;
+  max-width: 900px;
+
+  margin: 0 auto 80px;
+}
+
+/* CATEGORY TITLE */
+
+.skills-category h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 15px;
+
+  margin: 0 0 35px;
+
+  font-size: 1.3rem;
+  font-weight: 600;
+
+  color: var(--text-primary);
+
+  text-align: center;
+}
+
+/* Accent lines on both sides */
+
+.skills-category h3::before,
+.skills-category h3::after {
+  content: "";
+
+  width: 40px;
+  height: 2px;
+
+  background: var(--accent);
+}
+
+/* ========================================
+   SKILLS
+======================================== */
+
+.skills-list {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 30px;
+}
+
+.skill {
+  width: 100%;
+}
+
+/* ========================================
+   SKILL NAME AND PERCENTAGE
+======================================== */
+
+.skill-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+
+  margin-bottom: 10px;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  /*
+    Keep the individual skill labels aligned
+    with their progress bars.
+  */
+  text-align: left;
+}
+
+.skill-info span:first-child {
+  color: var(--text-primary);
+}
+
+.skill-info span:last-child {
+  min-width: 45px;
+
+  text-align: right;
+
+  color: var(--accent-light);
+}
+
+/* ========================================
+   BAR BACKGROUND
+======================================== */
+
+.skill-track {
+  position: relative;
+
+  width: 100%;
+  height: 10px;
+
+  /*
+    Do NOT use overflow: hidden.
+    The SA logo extends outside the bar.
+  */
+
+  background: rgba(255, 255, 255, 0.07);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+}
+
+/* ========================================
+   ANIMATED BAR
+======================================== */
+
+.skill-progress {
+  position: relative;
+
+  width: 0;
+  height: 100%;
+
+  border-radius: 20px;
+
+  background: linear-gradient(
+    90deg,
+    var(--accent),
+    var(--accent-light)
+  );
+
+  box-shadow:
+    0 0 10px rgba(17, 153, 250, 0.35),
+    0 0 20px rgba(17, 153, 250, 0.15);
+
+  /* Reset instantly back to zero */
+  transition: none;
+}
+
+/* ACTIVE ANIMATION */
+
+.skill-progress-active {
+  width: var(--skill-width);
+
+  transition:
+    width 1.4s cubic-bezier(0.16, 1, 0.3, 1)
+    var(--skill-delay);
+}
+
+/* ========================================
+   SA LOGO AT END OF BAR
+======================================== */
+
+.skill-logo {
+  position: absolute;
+
+  top: 50%;
+  right: -14px;
+
+  width: 28px;
+  height: 28px;
+
+  transform: translateY(-50%);
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(0 0 4px rgba(54, 184, 255, 0.8))
+    drop-shadow(0 0 9px rgba(17, 153, 250, 0.5));
+
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+  .skills {
+    padding: 60px 24px;
+  }
+
+  .skills h2 {
+    font-size: clamp(2rem, 8vw, 3.5rem);
+  }
+
+  .skills-intro {
+    margin-bottom: 45px;
+
+    font-size: 1rem;
+  }
+
+  .skills-category {
+    margin-bottom: 60px;
+  }
+
+  .skills-category h3::before,
+  .skills-category h3::after {
+    width: 25px;
+  }
+
+  .skills-list {
+    gap: 25px;
+  }
+
+  .skill-logo {
+    width: 24px;
+    height: 24px;
+
+    right: -12px;
+  }
+}
