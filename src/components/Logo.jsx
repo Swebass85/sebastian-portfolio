@@ -57,7 +57,7 @@ function Logo() {
       </div>
 
       <span className="brand-name">
-        sebastianakerman<span>.com</span>
+        sebastianakerman<span>.se</span>
       </span>
     </a>
   );

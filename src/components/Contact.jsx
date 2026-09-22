@@ -28,11 +28,9 @@ function Contact() {
     try {
       const response = await fetch("http://localhost:3001/api/contact", {
         method: "POST",
-
         headers: {
           "Content-Type": "application/json",
         },
-
         body: JSON.stringify(formData),
       });
 
@@ -50,7 +48,6 @@ function Contact() {
       });
     } catch (error) {
       console.error(error);
-
       setStatus("error");
     }
   };
@@ -126,13 +123,35 @@ function Contact() {
             />
           </div>
 
-          <button
-            className="contact-button"
-            type="submit"
-            disabled={status === "sending"}
-          >
-            {status === "sending" ? "Sending..." : "Send Message"}
-          </button>
+          {/* ACTION BUTTONS */}
+          <div className="contact-actions">
+            <button
+              className="contact-button"
+              type="submit"
+              disabled={status === "sending"}
+            >
+              {status === "sending" ? "Sending..." : "Send Message"}
+            </button>
+
+            <a
+              href="https://www.linkedin.com/in/sebastian-akerman-a9652963/"
+              target="_blank"
+              rel="noreferrer"
+              className="contact-linkedin"
+              aria-label="Sebastian Åkerman on LinkedIn"
+              title="LinkedIn"
+            >
+              <svg
+                className="linkedin-svg"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29zM5.32 7.41a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.1 20.45H3.54V8.98H7.1v11.47z" />
+              </svg>
+
+              <span className="contact-linkedin-shimmer" />
+            </a>
+          </div>
 
           {status === "success" && (
             <p className="contact-status success">

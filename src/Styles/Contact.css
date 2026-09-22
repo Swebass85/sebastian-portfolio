@@ -19,11 +19,9 @@
 
 .contact-content {
   width: 100%;
-  max-width: 850px;
+  max-width: 900px;
 
   margin: 0 auto;
-
-  text-align: center;
 }
 
 /* ========================================
@@ -45,10 +43,14 @@
 ======================================== */
 
 .contact h2 {
-  margin: 0 0 20px;
+  max-width: 750px;
+
+  margin: 0 0 25px;
 
   font-size: clamp(2.5rem, 5vw, 4rem);
   line-height: 1.1;
+
+  color: var(--text-primary);
 }
 
 /* ========================================
@@ -58,16 +60,16 @@
 .contact-intro {
   max-width: 650px;
 
-  margin: 0 auto 50px;
+  margin: 0 0 55px;
 
   font-size: 1.05rem;
-  line-height: 1.7;
+  line-height: 1.75;
 
   color: var(--text-secondary);
 }
 
 /* ========================================
-   FORM
+   CONTACT FORM
 ======================================== */
 
 .contact-form {
@@ -77,19 +79,19 @@
   flex-direction: column;
 
   gap: 25px;
-
-  text-align: left;
 }
 
 /* ========================================
-   NAME + EMAIL ROW
+   TWO COLUMN ROW
 ======================================== */
 
 .contact-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  width: 100%;
 
-  gap: 25px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 22px;
 }
 
 /* ========================================
@@ -97,15 +99,19 @@
 ======================================== */
 
 .contact-field {
+  width: 100%;
+
   display: flex;
   flex-direction: column;
 
-  gap: 10px;
+  gap: 9px;
 }
 
 .contact-field label {
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 0.82rem;
+  font-weight: 700;
+
+  letter-spacing: 0.06em;
 
   color: var(--text-primary);
 }
@@ -120,27 +126,28 @@
 
   box-sizing: border-box;
 
-  padding: 16px 18px;
+  padding: 15px 17px;
 
-  font: inherit;
-
-  color: var(--text-primary);
-
-  background: rgba(255, 255, 255, 0.035);
-
-  border: 1px solid rgba(97, 218, 251, 0.2);
-  border-radius: 10px;
+  border: 1px solid rgba(97, 218, 251, 0.16);
+  border-radius: 9px;
 
   outline: none;
 
+  background: rgba(5, 15, 25, 0.72);
+
+  font-family: inherit;
+  font-size: 0.95rem;
+
+  color: var(--text-primary);
+
   transition:
-    border-color 0.25s ease,
-    box-shadow 0.25s ease,
-    background 0.25s ease;
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .contact-field textarea {
-  min-height: 180px;
+  min-height: 170px;
 
   resize: vertical;
 }
@@ -151,7 +158,7 @@
 
 .contact-field input::placeholder,
 .contact-field textarea::placeholder {
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.3);
 }
 
 /* ========================================
@@ -160,55 +167,77 @@
 
 .contact-field input:focus,
 .contact-field textarea:focus {
-  border-color: var(--accent);
+  border-color: rgba(97, 218, 251, 0.65);
 
-  background: rgba(97, 218, 251, 0.04);
+  background: rgba(5, 15, 25, 0.9);
 
   box-shadow:
-    0 0 0 3px rgba(97, 218, 251, 0.08),
-    0 0 25px rgba(17, 153, 250, 0.1);
+    0 0 0 3px rgba(97, 218, 251, 0.05),
+    0 0 20px rgba(97, 218, 251, 0.05);
 }
 
 /* ========================================
-   SEND BUTTON
+   CONTACT ACTIONS
+======================================== */
+
+.contact-actions {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  gap: 14px;
+
+  margin-top: 5px;
+}
+
+/* ========================================
+   SEND MESSAGE BUTTON
 ======================================== */
 
 .contact-button {
-  align-self: center;
+  height: 48px;
 
-  min-width: 190px;
+  margin: 0;
+  padding: 0 26px;
 
-  margin-top: 10px;
-  padding: 15px 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
   border: 1px solid var(--accent);
   border-radius: 8px;
 
+  cursor: pointer;
+
   background: transparent;
+
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  letter-spacing: 0.03em;
 
   color: var(--accent);
 
-  font: inherit;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-
   transition:
-    transform 0.25s ease,
-    background 0.25s ease,
-    color 0.25s ease,
-    box-shadow 0.25s ease;
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .contact-button:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 
   background: var(--accent);
 
-  color: #07111a;
+  color: #05101a;
 
   box-shadow:
-    0 0 20px rgba(97, 218, 251, 0.25),
-    0 0 45px rgba(17, 153, 250, 0.15);
+    0 0 20px rgba(97, 218, 251, 0.2),
+    0 0 40px rgba(97, 218, 251, 0.08);
 }
 
 .contact-button:active {
@@ -216,29 +245,240 @@
 }
 
 /* ========================================
+   SEND BUTTON DISABLED
+======================================== */
+
+.contact-button:disabled {
+  cursor: not-allowed;
+
+  opacity: 0.55;
+
+  transform: none;
+
+  box-shadow: none;
+}
+
+/* ========================================
+   METALLIC LINKEDIN BADGE
+======================================== */
+
+.contact-linkedin {
+  position: relative;
+
+  width: 48px;
+  height: 48px;
+
+  flex: 0 0 48px;
+
+  padding: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 9px;
+
+  text-decoration: none;
+
+  background: linear-gradient(
+    135deg,
+    #151b22 0%,
+    #4c5661 20%,
+    #d9dde1 43%,
+    #8b949d 55%,
+    #303942 72%,
+    #111820 100%
+  );
+
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.45),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.7),
+    0 0 14px rgba(97, 218, 251, 0.08);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* ========================================
+   LINKEDIN "IN" SYMBOL
+======================================== */
+
+.contact-linkedin .linkedin-svg {
+  position: relative;
+
+  z-index: 3;
+
+  width: 27px;
+  height: 27px;
+
+  display: block;
+
+  fill: #07111a;
+
+  filter:
+    drop-shadow(0 1px 0 rgba(255, 255, 255, 0.4))
+    drop-shadow(0 -1px 1px rgba(0, 0, 0, 0.25));
+}
+
+/* ========================================
+   LINKEDIN SHIMMER
+======================================== */
+
+.contact-linkedin-shimmer {
+  position: absolute;
+
+  z-index: 2;
+
+  top: -75%;
+  left: -100%;
+
+  width: 35%;
+  height: 250%;
+
+  pointer-events: none;
+
+  transform: rotate(25deg);
+
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0.95),
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+
+  filter: blur(1px);
+
+  animation: contactLinkedinShimmer 3.5s ease-in-out infinite;
+}
+
+@keyframes contactLinkedinShimmer {
+  0% {
+    left: -100%;
+  }
+
+  35% {
+    left: 160%;
+  }
+
+  100% {
+    left: 160%;
+  }
+}
+
+/* ========================================
+   LINKEDIN HOVER
+======================================== */
+
+.contact-linkedin:hover {
+  transform: translateY(-3px) scale(1.06);
+
+  border-color: rgba(97, 218, 251, 0.55);
+
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.5),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.65),
+    0 0 20px rgba(97, 218, 251, 0.3),
+    0 0 40px rgba(97, 218, 251, 0.1);
+}
+
+.contact-linkedin:active {
+  transform: translateY(0) scale(1);
+}
+
+/* ========================================
+   STATUS MESSAGE
+======================================== */
+
+.contact-status {
+  margin: 0;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.contact-status.success {
+  color: #73e6a5;
+}
+
+.contact-status.error {
+  color: #ff7474;
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 900px) {
+  .contact {
+    padding: 120px 6%;
+  }
+
+  .contact-content {
+    max-width: 750px;
+  }
+}
+
+/* ========================================
    MOBILE
 ======================================== */
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .contact {
     min-height: auto;
 
     padding: 100px 24px;
   }
 
-  .contact-content {
-    max-width: 600px;
-  }
-
   .contact h2 {
     font-size: clamp(2.2rem, 10vw, 3rem);
   }
 
+  .contact-intro {
+    margin-bottom: 40px;
+
+    font-size: 1rem;
+  }
+
   .contact-row {
     grid-template-columns: 1fr;
+
+    gap: 25px;
+  }
+
+  .contact-form {
+    gap: 22px;
+  }
+
+  .contact-field input,
+  .contact-field textarea {
+    padding: 14px 15px;
+  }
+
+  .contact-actions {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 12px;
   }
 
   .contact-button {
-    width: 100%;
+    height: 48px;
+
+    padding: 0 22px;
+  }
+
+  .contact-linkedin {
+    width: 48px;
+    height: 48px;
+
+    flex-basis: 48px;
   }
 }
