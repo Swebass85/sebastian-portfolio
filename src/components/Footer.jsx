@@ -1,5 +1,5 @@
 import "../Styles/Footer.css";
-import logo from "../assets/sa-logo.webp";
+import logo from "../Public/sa-logo.webp";
 
 function Footer() {
   return (

@@ -1,9 +1,9 @@
 import "../Styles/About.css";
 
-import profile from "../assets/profile.webp";
-import music from "../assets/music.webp";
-import football from "../assets/football.webp";
-import photo from "../assets/photo.webp";
+import profile from "../Public/profile.webp";
+import music from "../Public/music.webp";
+import football from "../Public/football.webp";
+import photo from "../Public/photo.webp";
 
 function About() {
   const handleImageMove = (event) => {
