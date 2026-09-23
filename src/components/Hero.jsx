@@ -60,7 +60,7 @@ function Hero() {
 
       <p>Hi, I'm</p>
 
-      <h1>Sebastiann Åkerman</h1>
+      <h1>Sebastian Åkerman</h1>
 
       <h2>Full-Stack Developer/UX Designer/Photographer</h2>
 
