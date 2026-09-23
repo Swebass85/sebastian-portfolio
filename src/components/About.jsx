@@ -5,7 +5,6 @@ import music from "../assets/music.webp";
 import football from "../assets/football.webp";
 import photo from "../assets/photo.webp";
 
-
 function About() {
   const handleImageMove = (event) => {
     const wrapper = event.currentTarget;
@@ -19,39 +18,13 @@ function About() {
     const mouseX = event.clientX - rect.left;
     const mouseY = event.clientY - rect.top;
 
-    // Convert cursor position to a value between 0 and 1
+    // Convert cursor position to values between 0 and 1
     const xPercent = mouseX / rect.width;
     const yPercent = mouseY / rect.height;
 
-    // Horizontal cursor movement
-    const moveX = (0.5 - xPercent) * 50;
-
-    // Find which image is being hovered
-    const wrappers = Array.from(
-      wrapper.parentElement.querySelectorAll(".about-image-wrapper")
-    );
-
-    const imageIndex = wrappers.indexOf(wrapper);
-
-    let moveY;
-
-    /*
-      Image index:
-      0 = Profile
-      1 = Music
-      2 = Football
-      3 = Photography
-
-      Music and football are pushed much lower
-      so the face/upper part of the image stays visible.
-    */
-
-    if (imageIndex === 1 || imageIndex === 2) {
-      moveY = 60 + (0.5 - yPercent) * 15;
-    } else {
-      // Last image keeps normal cursor movement
-      moveY = (0.5 - yPercent) * 30;
-    }
+    // Small movement opposite to cursor direction
+    const moveX = (0.5 - xPercent) * 30;
+    const moveY = (0.5 - yPercent) * 30;
 
     image.style.transform = `
       translate(${moveX}px, ${moveY}px)
@@ -65,23 +38,14 @@ function About() {
 
     if (!image) return;
 
-    const wrappers = Array.from(
-      wrapper.parentElement.querySelectorAll(".about-image-wrapper")
-    );
-
-    const imageIndex = wrappers.indexOf(wrapper);
-
-    // Keep images 2 and 3 lower
-    if (imageIndex === 1 || imageIndex === 2) {
-      image.style.transform = "translate(0px, 60px) scale(1)";
-    } else {
-      image.style.transform = "translate(0px, 0px) scale(1)";
-    }
+    // Every image returns to exactly the same centered position
+    image.style.transform = "translate(0px, 0px) scale(1)";
   };
 
   return (
     <section className="about" id="about">
       <div className="about-content">
+
         {/* LEFT SIDE - TEXT */}
 
         <div className="about-text">
@@ -132,13 +96,16 @@ function About() {
         {/* RIGHT SIDE - IMAGES */}
 
         <div className="about-images">
-          {/* PROFILE - FEATURED */}
+
+          {/* PROFILE */}
 
           <div className="about-image-wrapper featured">
             <img
               src={profile}
               alt="Sebastian"
               className="about-image"
+              loading="lazy"
+              decoding="async"
             />
           </div>
 
@@ -153,6 +120,8 @@ function About() {
               src={music}
               alt="Sebastian performing music"
               className="about-image"
+              loading="lazy"
+              decoding="async"
             />
           </div>
 
@@ -167,6 +136,8 @@ function About() {
               src={football}
               alt="Sebastian playing football"
               className="about-image"
+              loading="lazy"
+              decoding="async"
             />
           </div>
 
@@ -179,10 +150,13 @@ function About() {
           >
             <img
               src={photo}
-              alt="Photography"
+              alt="Sebastian working with photography"
               className="about-image"
+              loading="lazy"
+              decoding="async"
             />
           </div>
+
         </div>
       </div>
     </section>
