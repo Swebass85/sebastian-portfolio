@@ -1,7 +1,7 @@
 import "../Styles/About.css";
 
 import profile from "../assets/profile.png";
-import music from "../assets/music.jpg";
+import music from "../assets/music.JPG";
 import football from "../assets/football.png";
 import photo from "../assets/photo.png";
 
