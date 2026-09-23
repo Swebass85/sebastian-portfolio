@@ -1,139 +1,172 @@
-import { useEffect, useState } from "react";
-import "../Styles/CustomCursor.css";
+import { useState } from "react";
+import "../Styles/Contact.css";
 
-function CustomCursor() {
-  const [position, setPosition] = useState({
-    x: -100,
-    y: -100,
+function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
 
-  const [isMobile, setIsMobile] = useState(
-    () => window.matchMedia("(max-width: 768px)").matches
-  );
+  const [status, setStatus] = useState("idle");
 
-  /* ========================================
-     CHECK MOBILE VIEWPORT
-  ======================================== */
+  const handleChange = (event) => {
+    const { name, value } = event.target;
 
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
-    const handleViewportChange = (event) => {
-      setIsMobile(event.matches);
-    };
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-    mediaQuery.addEventListener("change", handleViewportChange);
+    setStatus("sending");
 
-    return () => {
-      mediaQuery.removeEventListener("change", handleViewportChange);
-    };
-  }, []);
-
-  /* ========================================
-     TRACK MOUSE
-  ======================================== */
-
-  useEffect(() => {
-    if (isMobile) return;
-
-    const moveCursor = (e) => {
-      setPosition({
-        x: e.clientX,
-        y: e.clientY,
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
-    };
 
-    window.addEventListener("mousemove", moveCursor);
+      if (!response.ok) {
+        throw new Error("Could not send message.");
+      }
 
-    return () => {
-      window.removeEventListener("mousemove", moveCursor);
-    };
-  }, [isMobile]);
+      setStatus("success");
 
-  /* ========================================
-     DON'T RENDER CURSOR ON MOBILE
-  ======================================== */
-
-  if (isMobile) {
-    return null;
-  }
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Contact form error:", error);
+      setStatus("error");
+    }
+  };
 
   return (
-    <div
-      className="react-cursor"
-      style={{
-        left: position.x,
-        top: position.y,
-      }}
-    >
-      <svg
-        className="react-cursor-svg"
-        viewBox="-15 -15 30 30"
-        aria-hidden="true"
-      >
-        {/* FIXED REACT ATOM RINGS */}
-        <g className="react-cursor-rings">
-          <ellipse cx="0" cy="0" rx="11" ry="4.5" />
+    <section className="contact" id="contact">
+      <div className="contact-content">
+        <p className="section-label">CONTACT</p>
 
-          <ellipse
-            cx="0"
-            cy="0"
-            rx="11"
-            ry="4.5"
-            transform="rotate(60)"
-          />
+        <h2>Let's build something together.</h2>
 
-          <ellipse
-            cx="0"
-            cy="0"
-            rx="11"
-            ry="4.5"
-            transform="rotate(120)"
-          />
-        </g>
+        <p className="contact-intro">
+          I'm currently open to internships, collaborations, and development
+          opportunities. Feel free to send me a message.
+        </p>
 
-        {/* ELECTRON 1 */}
-        <ellipse
-          className="electron-path electron-path-1"
-          cx="0"
-          cy="0"
-          rx="11"
-          ry="4.5"
-          pathLength="100"
-        />
+        <form className="contact-form" onSubmit={handleSubmit}>
+          <div className="contact-row">
+            <div className="contact-field">
+              <label htmlFor="name">Name</label>
 
-        {/* ELECTRON 2 */}
-        <ellipse
-          className="electron-path electron-path-2"
-          cx="0"
-          cy="0"
-          rx="11"
-          ry="4.5"
-          pathLength="100"
-          transform="rotate(60)"
-        />
+              <input
+                id="name"
+                type="text"
+                name="name"
+                placeholder="Your name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-        {/* ELECTRON 3 */}
-        <ellipse
-          className="electron-path electron-path-3"
-          cx="0"
-          cy="0"
-          rx="11"
-          ry="4.5"
-          pathLength="100"
-          transform="rotate(120)"
-        />
+            <div className="contact-field">
+              <label htmlFor="email">Email</label>
 
-        {/* FIXED CENTER DOT */}
-        <circle
-          className="react-cursor-center"
-          cx="0"
-          cy="0"
-          r="2.3"
-        />
-      </svg>
-    </div>
+              <input
+                id="email"
+                type="email"
+                name="email"
+                placeholder="your@email.com"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          </div>
+
+          <div className="contact-field">
+            <label htmlFor="subject">Subject</label>
+
+            <input
+              id="subject"
+              type="text"
+              name="subject"
+              placeholder="What would you like to talk about?"
+              value={formData.subject}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="contact-field">
+            <label htmlFor="message">Message</label>
+
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Write your message here..."
+              rows="7"
+              value={formData.message}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="contact-actions">
+            <button
+              className="contact-button"
+              type="submit"
+              disabled={status === "sending"}
+            >
+              {status === "sending" ? "Sending..." : "Send Message"}
+            </button>
+
+            <a
+              href="https://www.linkedin.com/in/sebastian-akerman-a9652963/"
+              target="_blank"
+              rel="noreferrer"
+              className="contact-linkedin"
+              aria-label="Sebastian Åkerman on LinkedIn"
+              title="LinkedIn"
+            >
+              <svg
+                className="linkedin-svg"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29zM5.32 7.41a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.1 20.45H3.54V8.98H7.1v11.47z" />
+              </svg>
+
+              <span className="contact-linkedin-shimmer" />
+            </a>
+          </div>
+
+          {status === "success" && (
+            <p className="contact-status success">
+              Message sent successfully ✓
+            </p>
+          )}
+
+          {status === "error" && (
+            <p className="contact-status error">
+              Something went wrong. Please try again.
+            </p>
+          )}
+        </form>
+      </div>
+    </section>
   );
 }
 
-export default CustomCursor;
+export default Contact;
