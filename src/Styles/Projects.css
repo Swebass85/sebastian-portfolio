@@ -14,6 +14,9 @@
   justify-content: center;
 
   scroll-margin-top: 80px;
+
+  /* Extra protection against horizontal overflow */
+  overflow-x: hidden;
 }
 
 .projects-content {
@@ -21,6 +24,8 @@
   max-width: 1200px;
 
   margin: 0 auto;
+
+  min-width: 0;
 }
 
 /* ========================================
@@ -68,6 +73,9 @@
 ======================================== */
 
 .projects-list {
+  width: 100%;
+  min-width: 0;
+
   display: flex;
   flex-direction: column;
 
@@ -82,6 +90,8 @@
   position: relative;
 
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
   min-height: 520px;
 
   box-sizing: border-box;
@@ -126,6 +136,7 @@
   z-index: 5;
 
   width: 52%;
+  min-width: 0;
 
   padding: 55px 0 55px 55px;
 
@@ -308,17 +319,17 @@
 
 /* ========================================
    VIDEO CONTAINER
-   FILLS ENTIRE RIGHT SIDE
 ======================================== */
 
 .project-video-container {
   position: absolute;
 
-  top: 0;
-  right: 0;
+  inset: 0;
 
   width: 100%;
   height: 100%;
+
+  max-width: 100%;
 
   z-index: 1;
 
@@ -330,29 +341,34 @@
 /* ========================================
    VIDEO
 
-   KEEPING YOUR CUSTOM CROP:
-   height: 120%
-   top: -15%
-   right: -15%
+   Responsive on all desktop viewport sizes.
+   The video always stays inside the card.
 ======================================== */
 
 .project-video {
   position: absolute;
 
-  height: 120%;
-  width: auto;
-
-  max-width: none;
-
-  top: -15%;
-  right: -20%;
+  inset: 0;
 
   display: block;
 
+  width: 100%;
+  height: 100%;
+
+  max-width: 100%;
+
   object-fit: cover;
+
+  /*
+    Shifts the visible part slightly toward
+    the right without physically moving the
+    video outside of its container.
+  */
+  object-position: 70% center;
 
   filter: brightness(1);
 }
+
 /* ========================================
    VIDEO FADE
 ======================================== */
@@ -361,6 +377,9 @@
   position: absolute;
 
   inset: 0;
+
+  width: 100%;
+  height: 100%;
 
   z-index: 2;
 
@@ -422,6 +441,8 @@
   justify-content: center;
   align-items: center;
 
+  overflow: hidden;
+
   background:
     radial-gradient(
       circle at center,
@@ -469,23 +490,31 @@
   .project-placeholder {
     position: relative;
 
-    top: auto;
-    right: auto;
+    inset: auto;
 
     width: 100%;
+    max-width: 100%;
     height: auto;
 
     aspect-ratio: 16 / 9;
 
     order: 1;
+
+    overflow: hidden;
   }
 
   .project-video {
-    height: 120%;
-    width: auto;
+    position: absolute;
 
-    top: -10%;
-    right: 0;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    max-width: 100%;
+
+    object-fit: cover;
+    object-position: center;
   }
 
   .project-video-fade {
@@ -551,12 +580,15 @@
     margin-bottom: 22px;
   }
 
-    /* ========================================
+  /* ========================================
      MOBILE PROJECT VIDEO
   ======================================== */
 
   .project-video-container {
+    position: relative;
+
     width: 100%;
+    max-width: 100%;
     height: auto;
 
     aspect-ratio: 16 / 9;
@@ -567,16 +599,20 @@
   .project-video {
     position: absolute;
 
-    top: 0;
-    left: 0;
-    right: auto;
+    inset: 0;
 
     width: 100%;
     height: 100%;
 
-    max-width: none;
+    max-width: 100%;
 
     object-fit: cover;
+
+    /*
+      Keep the right side of the recording
+      slightly more visible on phones.
+    */
+    object-position: 70% center;
   }
 
   .project-video-fade {
