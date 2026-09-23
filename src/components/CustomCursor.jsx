@@ -7,7 +7,35 @@ function CustomCursor() {
     y: -100,
   });
 
+  const [isMobile, setIsMobile] = useState(
+    () => window.matchMedia("(max-width: 768px)").matches
+  );
+
+  /* ========================================
+     CHECK MOBILE VIEWPORT
+  ======================================== */
+
   useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+
+    const handleViewportChange = (event) => {
+      setIsMobile(event.matches);
+    };
+
+    mediaQuery.addEventListener("change", handleViewportChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleViewportChange);
+    };
+  }, []);
+
+  /* ========================================
+     TRACK MOUSE
+  ======================================== */
+
+  useEffect(() => {
+    if (isMobile) return;
+
     const moveCursor = (e) => {
       setPosition({
         x: e.clientX,
@@ -20,7 +48,15 @@ function CustomCursor() {
     return () => {
       window.removeEventListener("mousemove", moveCursor);
     };
-  }, []);
+  }, [isMobile]);
+
+  /* ========================================
+     DON'T RENDER CURSOR ON MOBILE
+  ======================================== */
+
+  if (isMobile) {
+    return null;
+  }
 
   return (
     <div

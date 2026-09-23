@@ -130,3 +130,27 @@ body * {
     drop-shadow(0 0 2px #ffffff)
     drop-shadow(0 0 5px #61dafb);
 }
+
+/* ========================================
+   MOBILE — DISABLE CUSTOM CURSOR
+======================================== */
+
+@media (max-width: 768px) {
+  html,
+  body,
+  body * {
+    cursor: auto !important;
+  }
+
+  /* Keep pointer behavior for clickable elements */
+  a,
+  button,
+  [role="button"] {
+    cursor: pointer !important;
+  }
+
+  /* Hide React cursor completely */
+  .react-cursor {
+    display: none !important;
+  }
+}
