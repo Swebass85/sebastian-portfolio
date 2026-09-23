@@ -157,13 +157,10 @@
 }
 
 /* ========================================
-   ALL ABOUT IMAGES
+   ALL IMAGES
 
-   Every image now behaves identically:
-   - fills the circle
-   - centered
-   - no internal border/gap
-   - no manual vertical offset
+   Every image uses EXACTLY the same
+   positioning inside its circle.
 ======================================== */
 
 .about-image {
@@ -194,7 +191,7 @@
 }
 
 /* ========================================
-   FIRST / PROFILE IMAGE
+   FEATURED PROFILE IMAGE
 ======================================== */
 
 .about-image-wrapper:first-child {
@@ -279,7 +276,6 @@
 
   .about-images {
     width: 180px;
-
     gap: 28px;
   }
 
@@ -335,7 +331,6 @@
     width: 100%;
 
     align-items: flex-start;
-
     text-align: left;
   }
 
@@ -350,6 +345,10 @@
 
     text-align: left;
   }
+
+  /* ========================================
+     MOBILE IMAGE GRID
+  ======================================== */
 
   .about-images {
     width: 100%;
@@ -368,13 +367,18 @@
     height: 130px;
   }
 
-  /* Every mobile image stays centered */
-  .about-image {
-    width: 100%;
-    height: 100%;
+  /*
+    IMPORTANT:
+    Every image stays perfectly centered.
+    No Music/Football offsets.
+  */
 
+  .about-image {
     top: 0;
     left: 0;
+
+    width: 100%;
+    height: 100%;
 
     object-fit: cover;
     object-position: center center;
@@ -425,13 +429,14 @@
 /* ========================================
    TOUCH DEVICES
 
-   Disable cursor-follow effects where
-   there is no real mouse pointer.
+   No mouse-follow animation on phones
+   or tablets.
 ======================================== */
 
 @media (hover: none), (pointer: coarse) {
   .about-image-wrapper.interactive .about-image {
     transform: translate(0, 0) scale(1) !important;
+
     transition: none;
     will-change: auto;
   }
