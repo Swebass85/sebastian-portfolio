@@ -50,7 +50,7 @@ function Hero() {
 
           {/* Shimmer copy */}
           <img
-            src={logo}
+            src="/sa-logo.webp"
             alt=""
             aria-hidden="true"
             className="hero-logo-reflection"
