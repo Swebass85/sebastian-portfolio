@@ -11,8 +11,8 @@ import Footer from "./components/Footer";
 
 function App() {
   const handleVideoLoaded = (event) => {
-    event.currentTarget.defaultPlaybackRate = 2.5;
-    event.currentTarget.playbackRate = 2.5;
+    event.currentTarget.defaultPlaybackRate = 1.5;
+    event.currentTarget.playbackRate = 1.5;
   };
 
   return (

@@ -252,7 +252,11 @@ function Hero() {
       </h1>
 
       <h2>
-        Full-Stack Developer/UX Designer/Photographer
+        Full-Stack Developer
+        <span className="hero-title-slash">/</span>
+        UX Designer
+        <span className="hero-title-slash">/</span>
+        Photographer
       </h2>
 
       <p>
