@@ -5,9 +5,7 @@
 .contact {
   width: 100%;
   min-height: 100vh;
-
   padding: 140px 8%;
-
   box-sizing: border-box;
 
   display: flex;
@@ -20,9 +18,9 @@
 .contact-content {
   width: 100%;
   max-width: 900px;
-
   margin: 0 auto;
 }
+
 
 /* ========================================
    SECTION LABEL
@@ -38,13 +36,13 @@
   color: var(--accent);
 }
 
+
 /* ========================================
    HEADING
 ======================================== */
 
 .contact h2 {
   max-width: 750px;
-
   margin: 0 0 25px;
 
   font-size: clamp(2.5rem, 5vw, 4rem);
@@ -53,13 +51,13 @@
   color: var(--text-primary);
 }
 
+
 /* ========================================
    INTRO
 ======================================== */
 
 .contact-intro {
   max-width: 650px;
-
   margin: 0 0 55px;
 
   font-size: 1.05rem;
@@ -67,6 +65,7 @@
 
   color: var(--text-secondary);
 }
+
 
 /* ========================================
    CONTACT FORM
@@ -81,6 +80,7 @@
   gap: 25px;
 }
 
+
 /* ========================================
    TWO COLUMN ROW
 ======================================== */
@@ -93,6 +93,7 @@
 
   gap: 22px;
 }
+
 
 /* ========================================
    FORM FIELD
@@ -110,11 +111,11 @@
 .contact-field label {
   font-size: 0.82rem;
   font-weight: 700;
-
   letter-spacing: 0.06em;
 
   color: var(--text-primary);
 }
+
 
 /* ========================================
    INPUT + TEXTAREA
@@ -123,7 +124,6 @@
 .contact-field input,
 .contact-field textarea {
   width: 100%;
-
   box-sizing: border-box;
 
   padding: 15px 17px;
@@ -148,9 +148,9 @@
 
 .contact-field textarea {
   min-height: 170px;
-
   resize: vertical;
 }
+
 
 /* ========================================
    PLACEHOLDER
@@ -160,6 +160,7 @@
 .contact-field textarea::placeholder {
   color: rgba(255, 255, 255, 0.3);
 }
+
 
 /* ========================================
    INPUT FOCUS
@@ -176,6 +177,7 @@
     0 0 20px rgba(97, 218, 251, 0.05);
 }
 
+
 /* ========================================
    CONTACT ACTIONS
 ======================================== */
@@ -188,9 +190,9 @@
   justify-content: flex-start;
 
   gap: 14px;
-
   margin-top: 5px;
 }
+
 
 /* ========================================
    SEND MESSAGE BUTTON
@@ -216,7 +218,6 @@
   font-family: inherit;
   font-size: 0.9rem;
   font-weight: 700;
-
   letter-spacing: 0.03em;
 
   color: var(--accent);
@@ -232,7 +233,6 @@
   transform: translateY(-2px);
 
   background: var(--accent);
-
   color: #05101a;
 
   box-shadow:
@@ -244,6 +244,7 @@
   transform: translateY(0);
 }
 
+
 /* ========================================
    SEND BUTTON DISABLED
 ======================================== */
@@ -254,9 +255,9 @@
   opacity: 0.55;
 
   transform: none;
-
   box-shadow: none;
 }
+
 
 /* ========================================
    METALLIC LINKEDIN BADGE
@@ -304,13 +305,13 @@
     box-shadow 0.3s ease;
 }
 
+
 /* ========================================
    LINKEDIN "IN" SYMBOL
 ======================================== */
 
 .contact-linkedin .linkedin-svg {
   position: relative;
-
   z-index: 3;
 
   width: 27px;
@@ -325,13 +326,13 @@
     drop-shadow(0 -1px 1px rgba(0, 0, 0, 0.25));
 }
 
+
 /* ========================================
    LINKEDIN SHIMMER
 ======================================== */
 
 .contact-linkedin-shimmer {
   position: absolute;
-
   z-index: 2;
 
   top: -75%;
@@ -372,6 +373,7 @@
   }
 }
 
+
 /* ========================================
    LINKEDIN HOVER
 ======================================== */
@@ -392,6 +394,7 @@
   transform: translateY(0) scale(1);
 }
 
+
 /* ========================================
    STATUS MESSAGE
 ======================================== */
@@ -411,6 +414,7 @@
   color: #ff7474;
 }
 
+
 /* ========================================
    TABLET
 ======================================== */
@@ -425,6 +429,7 @@
   }
 }
 
+
 /* ========================================
    MOBILE
 ======================================== */
@@ -432,7 +437,6 @@
 @media (max-width: 600px) {
   .contact {
     min-height: auto;
-
     padding: 100px 24px;
   }
 
@@ -442,13 +446,11 @@
 
   .contact-intro {
     margin-bottom: 40px;
-
     font-size: 1rem;
   }
 
   .contact-row {
     grid-template-columns: 1fr;
-
     gap: 25px;
   }
 
@@ -471,14 +473,12 @@
 
   .contact-button {
     height: 48px;
-
     padding: 0 22px;
   }
 
   .contact-linkedin {
     width: 48px;
     height: 48px;
-
     flex-basis: 48px;
   }
 }

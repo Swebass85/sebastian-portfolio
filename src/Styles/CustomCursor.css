@@ -1,9 +1,5 @@
 /* ========================================
-   HIDE NORMAL CURSOR
-======================================== */
-
-/* ========================================
-   HIDE ALL DEFAULT BROWSER CURSORS
+   HIDE DEFAULT BROWSER CURSOR
 ======================================== */
 
 html,
@@ -14,125 +10,167 @@ body * {
 
 
 /* ========================================
-   CUSTOM CURSOR POSITION
+   CUSTOM CURSOR
 ======================================== */
 
-.react-cursor {
+.custom-cursor {
   position: fixed;
+
+  left: 0;
+  top: 0;
 
   width: 42px;
   height: 42px;
 
-  transform: translate(-50%, -50%);
-
   pointer-events: none;
 
   z-index: 999999;
+
+  opacity: 0;
+
+  transform: translate(-50%, -50%);
+
+  transition: opacity 0.15s ease;
 }
 
 
 /* ========================================
-   SVG
+   CURSOR VISIBLE
 ======================================== */
 
-.react-cursor-svg {
-  width: 100%;
-  height: 100%;
+.custom-cursor.cursor-visible {
+  opacity: 1;
+}
 
-  overflow: visible;
+
+/* ========================================
+   ATOM CONTAINER
+======================================== */
+
+.cursor-atom {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 38px;
+  height: 38px;
+
+  transform: translate(-50%, -50%);
+
+  animation: atomSpin 3s linear infinite;
+}
+
+
+/* ========================================
+   ATOM ORBITS
+======================================== */
+
+.cursor-orbit {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 36px;
+  height: 14px;
+
+  border: 1px solid #61dafb;
+  border-radius: 50%;
+
+  box-sizing: border-box;
+
+  opacity: 0.85;
 
   filter:
-    drop-shadow(0 0 3px #61dafb)
-    drop-shadow(0 0 7px rgba(97, 218, 251, 0.45));
+    drop-shadow(0 0 2px #61dafb)
+    drop-shadow(0 0 4px rgba(97, 218, 251, 0.45));
 }
 
 
 /* ========================================
-   FIXED REACT ATOM
+   ORBIT 1
 ======================================== */
 
-.react-cursor-rings {
-  fill: none;
-
-  stroke: #61dafb;
-  stroke-width: 0.7;
-
-  opacity: 0.8;
+.cursor-orbit-1 {
+  transform:
+    translate(-50%, -50%)
+    rotate(0deg);
 }
 
 
 /* ========================================
-   MOVING ELECTRONS
+   ORBIT 2
 ======================================== */
 
-.electron-path {
-  fill: none;
-
-  stroke: #ffffff;
-
-  stroke-width: 1.8;
-
-  stroke-linecap: round;
-
-  /*
-    Tiny visible section of the ellipse.
-    This becomes our "electron".
-  */
-  stroke-dasharray: 2 98;
-
-  animation: electronOrbit 1.8s linear infinite;
-
-  filter:
-    drop-shadow(0 0 2px #ffffff)
-    drop-shadow(0 0 4px #61dafb);
+.cursor-orbit-2 {
+  transform:
+    translate(-50%, -50%)
+    rotate(60deg);
 }
 
 
-/* Start each electron at a different position */
+/* ========================================
+   ORBIT 3
+======================================== */
 
-.electron-path-1 {
-  stroke-dashoffset: 0;
-}
-
-.electron-path-2 {
-  animation-delay: -0.6s;
-}
-
-.electron-path-3 {
-  animation-delay: -1.2s;
+.cursor-orbit-3 {
+  transform:
+    translate(-50%, -50%)
+    rotate(120deg);
 }
 
 
-/* Move electron around its OWN ellipse */
+/* ========================================
+   ROTATE COMPLETE ATOM
+======================================== */
 
-@keyframes electronOrbit {
+@keyframes atomSpin {
   from {
-    stroke-dashoffset: 0;
+    transform:
+      translate(-50%, -50%)
+      rotate(0deg);
   }
 
   to {
-    stroke-dashoffset: -100;
+    transform:
+      translate(-50%, -50%)
+      rotate(360deg);
   }
 }
 
 
 /* ========================================
-   FIXED CENTER CURSOR DOT
+   FIXED CENTER DOT
 ======================================== */
 
-.react-cursor-center {
-  fill: #ffffff;
+.cursor-dot {
+  position: absolute;
 
-  stroke: #61dafb;
-  stroke-width: 0.8;
+  top: 50%;
+  left: 50%;
 
-  filter:
-    drop-shadow(0 0 2px #ffffff)
-    drop-shadow(0 0 5px #61dafb);
+  width: 5px;
+  height: 5px;
+
+  border: 1px solid #61dafb;
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  transform: translate(-50%, -50%);
+
+  box-shadow:
+    0 0 3px #ffffff,
+    0 0 7px #61dafb,
+    0 0 12px rgba(97, 218, 251, 0.6);
+
+  z-index: 5;
 }
 
+
 /* ========================================
-   MOBILE — DISABLE CUSTOM CURSOR
+   MOBILE — RESTORE NORMAL CURSOR
 ======================================== */
 
 @media (max-width: 768px) {
@@ -142,15 +180,13 @@ body * {
     cursor: auto !important;
   }
 
-  /* Keep pointer behavior for clickable elements */
   a,
   button,
   [role="button"] {
     cursor: pointer !important;
   }
 
-  /* Hide React cursor completely */
-  .react-cursor {
+  .custom-cursor {
     display: none !important;
   }
 }
