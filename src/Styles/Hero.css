@@ -4,7 +4,6 @@
 
 .hero {
   position: relative;
-
   width: 100%;
   min-height: 100vh;
 
@@ -30,8 +29,8 @@
 .hero-logo-wrapper {
   position: relative;
 
-  width: 340px;
-  height: 340px;
+  width: 510px;
+  height: 510px;
 
   display: flex;
   align-items: center;
@@ -55,8 +54,8 @@
 
   position: relative;
 
-  width: 208px;
-  height: 208px;
+  width: 312px;
+  height: 312px;
 
   flex: none;
 
@@ -155,7 +154,7 @@
   mask-image:
     url("/sa-logo.png"),
     radial-gradient(
-      circle 90px
+      circle 135px
       at var(--mouse-x) var(--mouse-y),
       black 0%,
       black 35%,
@@ -179,7 +178,7 @@
   -webkit-mask-image:
     url("/sa-logo.png"),
     radial-gradient(
-      circle 90px
+      circle 135px
       at var(--mouse-x) var(--mouse-y),
       black 0%,
       black 35%,
@@ -230,8 +229,8 @@
   top: 50%;
   left: 50%;
 
-  width: 310px;
-  height: 110px;
+  width: 465px;
+  height: 165px;
 
   border:
     2px solid rgba(97, 218, 251, 0.68);
@@ -246,10 +245,10 @@
 
   filter:
     drop-shadow(
-      0 0 3px rgba(97, 218, 251, 0.8)
+      0 0 4px rgba(97, 218, 251, 0.8)
     )
     drop-shadow(
-      0 0 8px rgba(97, 218, 251, 0.35)
+      0 0 10px rgba(97, 218, 251, 0.35)
     );
 
   transition:
@@ -301,8 +300,8 @@
   top: 50%;
   left: 50%;
 
-  width: 310px;
-  height: 110px;
+  width: 465px;
+  height: 165px;
 
   transform-origin: center;
 
@@ -339,10 +338,6 @@
 
 /* ========================================
    ELECTRONS
-
-   --electron-glow:
-   0 = normal
-   1 = maximum cursor proximity
 ======================================== */
 
 .hero-electron {
@@ -353,11 +348,11 @@
   top: 50%;
   left: 50%;
 
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
 
-  margin-left: -5px;
-  margin-top: -5px;
+  margin-left: -7.5px;
+  margin-top: -7.5px;
 
   border-radius: 50%;
 
@@ -367,19 +362,19 @@
 
   box-shadow:
     0 0
-      calc(4px + (8px * var(--electron-glow)))
+      calc(6px + (12px * var(--electron-glow)))
       #ffffff,
 
     0 0
-      calc(8px + (16px * var(--electron-glow)))
+      calc(12px + (24px * var(--electron-glow)))
       #61dafb,
 
     0 0
-      calc(16px + (30px * var(--electron-glow)))
+      calc(24px + (45px * var(--electron-glow)))
       rgba(97, 218, 251, 1),
 
     0 0
-      calc(26px + (50px * var(--electron-glow)))
+      calc(39px + (75px * var(--electron-glow)))
       rgba(97, 218, 251, 0.75);
 
   filter:
@@ -389,31 +384,11 @@
       )
     );
 
-  animation-name:
-    electronOrbit;
-
-  animation-duration:
-    5s;
-
-  animation-timing-function:
-    linear;
-
-  animation-iteration-count:
-    infinite;
+  animation-name: electronOrbit;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
-
-
-/* ========================================
-   IMPORTANT
-
-   We DO NOT change animation-duration
-   on hover.
-
-   JavaScript changes playbackRate instead.
-
-   This prevents the electrons from
-   teleporting to a different position.
-======================================== */
 
 
 /* ========================================
@@ -458,167 +433,82 @@
 
 
 /* ========================================
-   ELLIPTICAL ELECTRON MOVEMENT
+   DESKTOP ELECTRON MOVEMENT
 
-   Width: 310px
-   Height: 110px
+   Ring: 465px × 165px
 
-   X radius: 155px
-   Y radius: 55px
+   X radius: 232.5px
+   Y radius: 82.5px
 ======================================== */
 
 @keyframes electronOrbit {
 
   0% {
-    transform:
-      translate(
-        155px,
-        0px
-      );
+    transform: translate(232.5px, 0);
   }
-
 
   6.25% {
-    transform:
-      translate(
-        143.2px,
-        21px
-      );
+    transform: translate(214.8px, 31.6px);
   }
-
 
   12.5% {
-    transform:
-      translate(
-        109.6px,
-        38.9px
-      );
+    transform: translate(164.4px, 58.3px);
   }
-
 
   18.75% {
-    transform:
-      translate(
-        59.3px,
-        50.8px
-      );
+    transform: translate(89px, 76.2px);
   }
-
 
   25% {
-    transform:
-      translate(
-        0px,
-        55px
-      );
+    transform: translate(0, 82.5px);
   }
-
 
   31.25% {
-    transform:
-      translate(
-        -59.3px,
-        50.8px
-      );
+    transform: translate(-89px, 76.2px);
   }
-
 
   37.5% {
-    transform:
-      translate(
-        -109.6px,
-        38.9px
-      );
+    transform: translate(-164.4px, 58.3px);
   }
-
 
   43.75% {
-    transform:
-      translate(
-        -143.2px,
-        21px
-      );
+    transform: translate(-214.8px, 31.6px);
   }
-
 
   50% {
-    transform:
-      translate(
-        -155px,
-        0px
-      );
+    transform: translate(-232.5px, 0);
   }
-
 
   56.25% {
-    transform:
-      translate(
-        -143.2px,
-        -21px
-      );
+    transform: translate(-214.8px, -31.6px);
   }
-
 
   62.5% {
-    transform:
-      translate(
-        -109.6px,
-        -38.9px
-      );
+    transform: translate(-164.4px, -58.3px);
   }
-
 
   68.75% {
-    transform:
-      translate(
-        -59.3px,
-        -50.8px
-      );
+    transform: translate(-89px, -76.2px);
   }
-
 
   75% {
-    transform:
-      translate(
-        0px,
-        -55px
-      );
+    transform: translate(0, -82.5px);
   }
-
 
   81.25% {
-    transform:
-      translate(
-        59.3px,
-        -50.8px
-      );
+    transform: translate(89px, -76.2px);
   }
-
 
   87.5% {
-    transform:
-      translate(
-        109.6px,
-        -38.9px
-      );
+    transform: translate(164.4px, -58.3px);
   }
-
 
   93.75% {
-    transform:
-      translate(
-        143.2px,
-        -21px
-      );
+    transform: translate(214.8px, -31.6px);
   }
 
-
   100% {
-    transform:
-      translate(
-        155px,
-        0px
-      );
+    transform: translate(232.5px, 0);
   }
 }
 
@@ -634,10 +524,10 @@
 
   filter:
     drop-shadow(
-      0 0 4px rgba(97, 218, 251, 0.95)
+      0 0 5px rgba(97, 218, 251, 0.95)
     )
     drop-shadow(
-      0 0 12px rgba(97, 218, 251, 0.45)
+      0 0 15px rgba(97, 218, 251, 0.45)
     );
 }
 
@@ -804,16 +694,18 @@
 
 
   .hero-logo-wrapper {
-    width: 280px;
-    height: 280px;
+    width: 420px;
+    height: 420px;
+
+    max-width: 100%;
 
     margin-bottom: 18px;
   }
 
 
   .hero-logo {
-    width: 169px;
-    height: 169px;
+    width: 253.5px;
+    height: 253.5px;
   }
 
 
@@ -824,17 +716,91 @@
 
   .hero-orbit,
   .electron-orbit {
-    width: 245px;
-    height: 86px;
+    width: 367.5px;
+    height: 129px;
   }
 
 
   .hero-electron {
-    width: 8px;
-    height: 8px;
+    width: 12px;
+    height: 12px;
 
-    margin-left: -4px;
-    margin-top: -4px;
+    margin-left: -6px;
+    margin-top: -6px;
+
+    animation-name: electronOrbitTablet;
+  }
+
+
+  @keyframes electronOrbitTablet {
+
+    0% {
+      transform: translate(183.75px, 0);
+    }
+
+    6.25% {
+      transform: translate(169.8px, 24.7px);
+    }
+
+    12.5% {
+      transform: translate(129.9px, 45.6px);
+    }
+
+    18.75% {
+      transform: translate(70.3px, 59.6px);
+    }
+
+    25% {
+      transform: translate(0, 64.5px);
+    }
+
+    31.25% {
+      transform: translate(-70.3px, 59.6px);
+    }
+
+    37.5% {
+      transform: translate(-129.9px, 45.6px);
+    }
+
+    43.75% {
+      transform: translate(-169.8px, 24.7px);
+    }
+
+    50% {
+      transform: translate(-183.75px, 0);
+    }
+
+    56.25% {
+      transform: translate(-169.8px, -24.7px);
+    }
+
+    62.5% {
+      transform: translate(-129.9px, -45.6px);
+    }
+
+    68.75% {
+      transform: translate(-70.3px, -59.6px);
+    }
+
+    75% {
+      transform: translate(0, -64.5px);
+    }
+
+    81.25% {
+      transform: translate(70.3px, -59.6px);
+    }
+
+    87.5% {
+      transform: translate(129.9px, -45.6px);
+    }
+
+    93.75% {
+      transform: translate(169.8px, -24.7px);
+    }
+
+    100% {
+      transform: translate(183.75px, 0);
+    }
   }
 
 
@@ -869,14 +835,16 @@
 
 
   .hero-logo-wrapper {
-    width: 230px;
-    height: 230px;
+    width: 345px;
+    height: 345px;
+
+    max-width: 100%;
   }
 
 
   .hero-logo {
-    width: 143px;
-    height: 143px;
+    width: 214.5px;
+    height: 214.5px;
   }
 
 
@@ -887,8 +855,8 @@
 
   .hero-orbit,
   .electron-orbit {
-    width: 205px;
-    height: 72px;
+    width: 307.5px;
+    height: 108px;
   }
 
 
@@ -898,11 +866,85 @@
 
 
   .hero-electron {
-    width: 7px;
-    height: 7px;
+    width: 10.5px;
+    height: 10.5px;
 
-    margin-left: -3.5px;
-    margin-top: -3.5px;
+    margin-left: -5.25px;
+    margin-top: -5.25px;
+
+    animation-name: electronOrbitMobile;
+  }
+
+
+  @keyframes electronOrbitMobile {
+
+    0% {
+      transform: translate(153.75px, 0);
+    }
+
+    6.25% {
+      transform: translate(142px, 20.7px);
+    }
+
+    12.5% {
+      transform: translate(108.7px, 38.2px);
+    }
+
+    18.75% {
+      transform: translate(58.8px, 49.9px);
+    }
+
+    25% {
+      transform: translate(0, 54px);
+    }
+
+    31.25% {
+      transform: translate(-58.8px, 49.9px);
+    }
+
+    37.5% {
+      transform: translate(-108.7px, 38.2px);
+    }
+
+    43.75% {
+      transform: translate(-142px, 20.7px);
+    }
+
+    50% {
+      transform: translate(-153.75px, 0);
+    }
+
+    56.25% {
+      transform: translate(-142px, -20.7px);
+    }
+
+    62.5% {
+      transform: translate(-108.7px, -38.2px);
+    }
+
+    68.75% {
+      transform: translate(-58.8px, -49.9px);
+    }
+
+    75% {
+      transform: translate(0, -54px);
+    }
+
+    81.25% {
+      transform: translate(58.8px, -49.9px);
+    }
+
+    87.5% {
+      transform: translate(108.7px, -38.2px);
+    }
+
+    93.75% {
+      transform: translate(142px, -20.7px);
+    }
+
+    100% {
+      transform: translate(153.75px, 0);
+    }
   }
 
 
