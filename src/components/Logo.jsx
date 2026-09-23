@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import "../Styles/Logo.css";
-import logo from "../assets/sa-logo.png";
+import logo from "../assets/sa-logo.webp";
 
 function Logo() {
   const logoRef = useRef(null);

@@ -1,9 +1,9 @@
 import "../Styles/About.css";
 
-import profile from "../assets/profile.png";
-import music from "../assets/music.JPG";
-import football from "../assets/football.png";
-import photo from "../assets/photo.png";
+import profile from "../assets/profile.webp";
+import music from "../assets/music.webp";
+import football from "../assets/football.webp";
+import photo from "../assets/photo.webp";
 
 
 function About() {

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import "../Styles/Skills.css";
-import logo from "../assets/sa-logo.png";
+import logo from "../assets/sa-logo.webp";
 
 const technicalSkills = [
   { name: "UX / UI", value: 95 },
