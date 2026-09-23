@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import "../Styles/Hero.css";
 
 function Hero() {
@@ -6,7 +6,7 @@ function Hero() {
   const atomWrapperRef = useRef(null);
 
   /* ========================================
-     LOGO FLASHLIGHT POSITION
+     LOGO FLASHLIGHT
   ======================================== */
 
   const handleLogoMouseMove = (event) => {
@@ -22,19 +22,19 @@ function Hero() {
     const y =
       ((event.clientY - rect.top) / rect.height) * 100;
 
-    element.style.setProperty("--mouse-x", `${x}%`);
-    element.style.setProperty("--mouse-y", `${y}%`);
+    element.style.setProperty(
+      "--mouse-x",
+      `${x}%`
+    );
+
+    element.style.setProperty(
+      "--mouse-y",
+      `${y}%`
+    );
   };
 
-
   /* ========================================
-     SPEED UP ELECTRONS
-
-     Uses Web Animations playbackRate instead
-     of changing animation-duration.
-
-     This means the electrons continue from
-     their exact current position.
+     ELECTRON SPEED
   ======================================== */
 
   const setElectronSpeed = (speed) => {
@@ -54,9 +54,64 @@ function Hero() {
     });
   };
 
+  /* ========================================
+     CLICKABLE ELEMENT DETECTION
+
+     Normal page:
+     1x speed
+
+     Hover clickable:
+     2x speed
+  ======================================== */
+
+  useEffect(() => {
+    const handlePageMouseMove = (event) => {
+      const target = event.target;
+
+      if (!(target instanceof Element)) {
+        setElectronSpeed(1);
+        return;
+      }
+
+      const clickableElement = target.closest(
+        `
+        a,
+        button,
+        input,
+        select,
+        textarea,
+        [role="button"],
+        [role="link"],
+        [onclick],
+        .clickable
+        `
+      );
+
+      if (clickableElement) {
+        setElectronSpeed(2);
+      } else {
+        setElectronSpeed(1);
+      }
+    };
+
+    window.addEventListener(
+      "mousemove",
+      handlePageMouseMove
+    );
+
+    return () => {
+      window.removeEventListener(
+        "mousemove",
+        handlePageMouseMove
+      );
+    };
+  }, []);
 
   /* ========================================
-     LOGO MOUSE ENTER
+     LOGO HOVER
+
+     Flashlight only.
+     Does NOT change electron speed.
   ======================================== */
 
   const handleLogoMouseEnter = () => {
@@ -65,14 +120,7 @@ function Hero() {
         "hero-logo-active"
       );
     }
-
-    setElectronSpeed(2);
   };
-
-
-  /* ========================================
-     LOGO MOUSE LEAVE
-  ======================================== */
 
   const handleLogoMouseLeave = () => {
     if (heroLogoRef.current) {
@@ -80,13 +128,10 @@ function Hero() {
         "hero-logo-active"
       );
     }
-
-    setElectronSpeed(1);
   };
 
-
   /* ========================================
-     ELECTRON PROXIMITY GLOW
+     ELECTRON CURSOR GLOW
   ======================================== */
 
   const handleAtomMouseMove = (event) => {
@@ -118,11 +163,6 @@ function Hero() {
         distanceY * distanceY
       );
 
-      /*
-        Distance in pixels where the glow
-        begins reacting to the cursor.
-      */
-
       const glowRadius = 180;
 
       const glow = Math.max(
@@ -136,11 +176,6 @@ function Hero() {
       );
     });
   };
-
-
-  /* ========================================
-     RESET ELECTRON GLOW
-  ======================================== */
 
   const handleAtomMouseLeave = () => {
     const wrapper = atomWrapperRef.current;
@@ -158,74 +193,35 @@ function Hero() {
     });
   };
 
-
   return (
-    <section className="hero" id="home">
-
-      {/* ========================================
-          LOGO + ATOM
-      ======================================== */}
-
+    <section
+      className="hero"
+      id="home"
+    >
       <div
         className="hero-logo-wrapper"
         ref={atomWrapperRef}
         onMouseMove={handleAtomMouseMove}
         onMouseLeave={handleAtomMouseLeave}
       >
-
-        {/* ========================================
-            VISIBLE ORBIT RINGS
-        ======================================== */}
-
         <div className="hero-orbit hero-orbit-1" />
-
         <div className="hero-orbit hero-orbit-2" />
-
         <div className="hero-orbit hero-orbit-3" />
 
-
-        {/* ========================================
-            ORBIT 1
-        ======================================== */}
-
         <div className="electron-orbit electron-orbit-1">
-
           <span className="hero-electron electron-a" />
-
           <span className="hero-electron electron-b" />
-
         </div>
-
-
-        {/* ========================================
-            ORBIT 2
-        ======================================== */}
 
         <div className="electron-orbit electron-orbit-2">
-
           <span className="hero-electron electron-a" />
-
           <span className="hero-electron electron-b" />
-
         </div>
-
-
-        {/* ========================================
-            ORBIT 3
-        ======================================== */}
 
         <div className="electron-orbit electron-orbit-3">
-
           <span className="hero-electron electron-a" />
-
           <span className="hero-electron electron-b" />
-
         </div>
-
-
-        {/* ========================================
-            SA LOGO
-        ======================================== */}
 
         <div
           className="hero-logo"
@@ -234,7 +230,6 @@ function Hero() {
           onMouseEnter={handleLogoMouseEnter}
           onMouseLeave={handleLogoMouseLeave}
         >
-
           <img
             src="/sa-logo.png"
             alt="Sebastian Åkerman logo"
@@ -247,19 +242,14 @@ function Hero() {
             aria-hidden="true"
             className="hero-logo-reflection"
           />
-
         </div>
-
       </div>
-
-
-      {/* ========================================
-          HERO TEXT
-      ======================================== */}
 
       <p>Hi, I'm</p>
 
-      <h1>Sebastian Åkerman</h1>
+      <h1>
+        Sebastian Åkerman
+      </h1>
 
       <h2>
         Full-Stack Developer/UX Designer/Photographer
@@ -270,13 +260,7 @@ function Hero() {
         user experience, and clean code.
       </p>
 
-
-      {/* ========================================
-          BUTTONS
-      ======================================== */}
-
       <div className="hero-buttons">
-
         <a href="#projects">
           View my projects
         </a>
@@ -284,9 +268,7 @@ function Hero() {
         <a href="#contact">
           Contact me
         </a>
-
       </div>
-
     </section>
   );
 }
