@@ -1,13 +1,45 @@
+/* ========================================
+   BRAND
+======================================== */
+
 .brand {
-  display: flex;
+  position: relative;
+  z-index: 10;
+
+  display: inline-flex;
   align-items: center;
-  gap: 14px;
+
+  gap: 12px;
 
   text-decoration: none;
   color: var(--text-primary);
 }
 
-/* LOGO CONTAINER */
+
+/* ========================================
+   ATOM LOGO CONTAINER
+======================================== */
+
+.logo-atom-container {
+  position: relative;
+
+  width: 66px;
+  height: 60px;
+
+  flex: 0 0 66px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: visible;
+}
+
+
+/* ========================================
+   SA LOGO SHIELD
+   SITS IN FRONT OF RINGS + ELECTRONS
+======================================== */
 
 .logo-shield {
   --mouse-x: 50%;
@@ -15,138 +47,452 @@
 
   position: relative;
 
-  width: 58px;
-  height: 58px;
+  width: 48px;
+  height: 48px;
 
-  cursor: pointer;
+  flex: none;
 
-  transition: transform 0.25s ease;
+  overflow: hidden;
+
+  border-radius: 4px;
+
+  isolation: isolate;
+
+  /* Logo sits in front */
+  z-index: 5;
 }
 
-/* NORMAL SA LOGO */
+
+/* ========================================
+   NORMAL LOGO
+======================================== */
 
 .logo-image {
   position: absolute;
-  inset: 0;
 
-  width: 100%;
-  height: 100%;
+  top: 0;
+  left: 0;
+
+  width: 48px;
+  height: 48px;
+
+  max-width: 48px;
+  max-height: 48px;
 
   display: block;
+
   object-fit: contain;
+
+  z-index: 1;
+
+  pointer-events: none;
+  user-select: none;
 }
 
-/* REFLECTION COPY */
+
+/* ========================================
+   METALLIC REFLECTION COPY
+======================================== */
 
 .logo-reflection-image {
   position: absolute;
-  inset: 0;
 
-  width: 100%;
-  height: 100%;
+  top: 0;
+  left: 0;
+
+  width: 48px;
+  height: 48px;
+
+  max-width: 48px;
+  max-height: 48px;
+
+  display: block;
 
   object-fit: contain;
 
-  pointer-events: none;
+  z-index: 2;
 
   opacity: 0;
 
-  /*
-    Makes the second copy brighter and more metallic.
-    Because this is another copy of the PNG,
-    transparent areas remain transparent.
-  */
-
-  filter:
-    brightness(2.5)
-    contrast(1.15)
-    drop-shadow(0 0 3px rgba(255, 255, 255, 0.35));
-
-  /*
-    Only reveal a small circular area around
-    the mouse position.
-  */
-
-  -webkit-mask-image: radial-gradient(
-    circle 15px at var(--mouse-x) var(--mouse-y),
-    black 0%,
-    rgba(0, 0, 0, 0.9) 25%,
-    rgba(0, 0, 0, 0.4) 55%,
-    transparent 100%
-  );
+  pointer-events: none;
+  user-select: none;
 
   mask-image: radial-gradient(
-    circle 15px at var(--mouse-x) var(--mouse-y),
+    circle 18px at var(--mouse-x) var(--mouse-y),
     black 0%,
-    rgba(0, 0, 0, 0.9) 25%,
-    rgba(0, 0, 0, 0.4) 55%,
-    transparent 100%
+    black 30%,
+    transparent 75%
   );
 
-  transition: opacity 0.15s ease;
+  -webkit-mask-image: radial-gradient(
+    circle 18px at var(--mouse-x) var(--mouse-y),
+    black 0%,
+    black 30%,
+    transparent 75%
+  );
+
+  filter:
+    brightness(1.8)
+    contrast(1.15)
+    saturate(1.3);
+
+  transition: opacity 0.2s ease;
 }
 
-/* SHOW REFLECTION ONLY WHILE HOVERING */
 
-.logo-active .logo-reflection-image {
-  opacity: 1;
+/* ========================================
+   SHOW REFLECTION ON HOVER
+======================================== */
+
+.logo-shield.logo-active .logo-reflection-image {
+  opacity: 0.9;
 }
 
-/* SLIGHT INTERACTION */
 
-.logo-active {
-  transform: scale(1.04);
+/* ========================================
+   ATOM RINGS
+
+   These are BEHIND the SA logo.
+
+   Each ring is also the coordinate system
+   for its electron.
+======================================== */
+
+.logo-orbit {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 62px;
+  height: 25px;
+
+  border: 1px solid rgba(97, 218, 251, 0.8);
+  border-radius: 50%;
+
+  box-sizing: border-box;
+
+  pointer-events: none;
+
+  /* Behind the SA logo */
+  z-index: 1;
+
+  filter:
+    drop-shadow(0 0 2px rgba(97, 218, 251, 0.75))
+    drop-shadow(0 0 4px rgba(97, 218, 251, 0.35));
 }
 
-/* BRAND NAME */
+
+/* ========================================
+   RING ANGLES
+======================================== */
+
+.logo-orbit-1 {
+  transform:
+    translate(-50%, -50%)
+    rotate(0deg);
+}
+
+.logo-orbit-2 {
+  transform:
+    translate(-50%, -50%)
+    rotate(60deg);
+}
+
+.logo-orbit-3 {
+  transform:
+    translate(-50%, -50%)
+    rotate(120deg);
+}
+
+
+/* ========================================
+   ELECTRONS
+
+   Ring:
+   62px × 25px
+
+   Track radius:
+   31px × 12.5px
+
+   Therefore the electron follows the
+   same ellipse as the visible ring.
+======================================== */
+
+.logo-electron {
+  position: absolute;
+
+  /*
+    Start from the CENTER of its ring.
+  */
+  top: 50%;
+  left: 50%;
+
+  width: 5px;
+  height: 5px;
+
+  margin-left: -2.5px;
+  margin-top: -2.5px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  pointer-events: none;
+
+  /*
+    THIS IS THE TRACK.
+
+    The dimensions exactly match
+    the radius of the visible ring.
+  */
+  offset-path: ellipse(31px 12.5px at 0 0);
+
+  offset-distance: 0%;
+
+  offset-rotate: 0deg;
+
+  box-shadow:
+    0 0 3px #ffffff,
+    0 0 6px #61dafb,
+    0 0 11px rgba(97, 218, 251, 1);
+
+  animation:
+    logoElectronOrbit 3s linear infinite;
+}
+
+
+/* ========================================
+   ELECTRON 1
+======================================== */
+
+.logo-orbit-1 .logo-electron {
+  animation-duration: 2.8s;
+  animation-delay: 0s;
+}
+
+
+/* ========================================
+   ELECTRON 2
+======================================== */
+
+.logo-orbit-2 .logo-electron {
+  animation-duration: 3.1s;
+  animation-delay: -1s;
+}
+
+
+/* ========================================
+   ELECTRON 3
+======================================== */
+
+.logo-orbit-3 .logo-electron {
+  animation-duration: 3.4s;
+  animation-delay: -2s;
+}
+
+
+/* ========================================
+   ELECTRON MOVEMENT
+
+   Like a train travelling around
+   the elliptical ring/track.
+======================================== */
+
+@keyframes logoElectronOrbit {
+  from {
+    offset-distance: 0%;
+  }
+
+  to {
+    offset-distance: 100%;
+  }
+}
+
+
+/* ========================================
+   HOVER EFFECT
+======================================== */
+
+.logo-atom-container:hover .logo-orbit {
+  border-color: rgba(97, 218, 251, 1);
+
+  filter:
+    drop-shadow(0 0 3px rgba(97, 218, 251, 0.95))
+    drop-shadow(0 0 7px rgba(97, 218, 251, 0.45));
+}
+
+
+.logo-atom-container:hover .logo-electron {
+  box-shadow:
+    0 0 4px #ffffff,
+    0 0 8px #61dafb,
+    0 0 15px rgba(97, 218, 251, 1);
+}
+
+
+/* ========================================
+   BRAND NAME
+======================================== */
 
 .brand-name {
-  font-size: 1.25rem;
-  font-weight: 600;
-  letter-spacing: -0.03em;
-
   white-space: nowrap;
+
+  font-size: 0.95rem;
+  font-weight: 700;
+
+  letter-spacing: 0.02em;
+
+  color: var(--text-primary);
 }
+
 
 .brand-name span {
   color: var(--accent);
 }
 
-/* MOBILE */
+
+/* ========================================
+   TABLET / MOBILE
+======================================== */
 
 @media (max-width: 768px) {
-  .logo-shield {
-    width: 45px;
-    height: 45px;
+
+  .brand {
+    gap: 10px;
   }
+
+
+  .logo-atom-container {
+    width: 58px;
+    height: 54px;
+
+    flex-basis: 58px;
+  }
+
+
+  .logo-shield {
+    width: 42px;
+    height: 42px;
+  }
+
+
+  .logo-image,
+  .logo-reflection-image {
+    width: 42px;
+    height: 42px;
+
+    max-width: 42px;
+    max-height: 42px;
+  }
+
+
+  /* Ring track */
+
+  .logo-orbit {
+    width: 55px;
+    height: 22px;
+  }
+
+
+  /*
+    Ring = 55 × 22
+
+    Radius =
+    27.5 × 11
+  */
+
+  .logo-electron {
+    width: 4px;
+    height: 4px;
+
+    margin-left: -2px;
+    margin-top: -2px;
+
+    offset-path: ellipse(27.5px 11px at 0 0);
+  }
+
 
   .brand-name {
-    font-size: 1rem;
+    font-size: 0.85rem;
   }
 }
 
-/* Prevent text cursor / selection around logo */
 
-.brand,
-.logo-shield,
-.logo-shield img {
-  user-select: none;
-  -webkit-user-select: none;
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 480px) {
+
+  .brand {
+    gap: 8px;
+  }
+
+
+  .logo-atom-container {
+    width: 54px;
+    height: 50px;
+
+    flex-basis: 54px;
+  }
+
+
+  .logo-shield {
+    width: 38px;
+    height: 38px;
+  }
+
+
+  .logo-image,
+  .logo-reflection-image {
+    width: 38px;
+    height: 38px;
+
+    max-width: 38px;
+    max-height: 38px;
+  }
+
+
+  /* Ring track */
+
+  .logo-orbit {
+    width: 50px;
+    height: 20px;
+  }
+
+
+  /*
+    Ring = 50 × 20
+
+    Radius =
+    25 × 10
+  */
+
+  .logo-electron {
+    width: 4px;
+    height: 4px;
+
+    margin-left: -2px;
+    margin-top: -2px;
+
+    offset-path: ellipse(25px 10px at 0 0);
+  }
+
+
+  .brand-name {
+    font-size: 0.78rem;
+  }
 }
 
-.brand {
-  caret-color: transparent;
-}
 
-/* Prevent logo from behaving like selectable/editable content */
-.logo,
-.logo img,
-.hero-logo,
-.hero-logo img {
-  user-select: none;
-  -webkit-user-select: none;
+/* ========================================
+   REDUCED MOTION
+======================================== */
 
-  caret-color: transparent;
+@media (prefers-reduced-motion: reduce) {
 
-  -webkit-user-drag: none;
+  .logo-electron {
+    animation: none;
+  }
 }

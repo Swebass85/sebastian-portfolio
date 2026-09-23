@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import "../Styles/Logo.css";
 
-
 function Logo() {
   const logoRef = useRef(null);
 
@@ -40,14 +39,12 @@ function Logo() {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        {/* Normal logo */}
         <img
           src="/sa-logo.webp"
           alt="Sebastian Åkerman logo"
           className="logo-image"
         />
 
-        {/* Metallic reflection copy */}
         <img
           src="/sa-logo.webp"
           alt=""

@@ -15,9 +15,9 @@
 
   scroll-margin-top: 80px;
 
-  /* Extra protection against horizontal overflow */
   overflow-x: hidden;
 }
+
 
 .projects-content {
   width: 100%;
@@ -27,6 +27,7 @@
 
   min-width: 0;
 }
+
 
 /* ========================================
    SECTION HEADING
@@ -40,6 +41,7 @@
   text-align: center;
 }
 
+
 .projects .section-label {
   margin: 0 0 20px;
 
@@ -50,12 +52,14 @@
   color: var(--accent);
 }
 
+
 .projects h2 {
   margin: 0 0 25px;
 
   font-size: clamp(2.5rem, 5vw, 4rem);
   line-height: 1.1;
 }
+
 
 .projects-intro {
   max-width: 700px;
@@ -67,6 +71,7 @@
 
   color: var(--text-secondary);
 }
+
 
 /* ========================================
    PROJECT LIST
@@ -81,6 +86,7 @@
 
   gap: 70px;
 }
+
 
 /* ========================================
    PROJECT CARD
@@ -116,6 +122,7 @@
     box-shadow 0.35s ease;
 }
 
+
 .project-card:hover {
   transform: translateY(-6px);
 
@@ -125,6 +132,7 @@
     0 25px 60px rgba(0, 0, 0, 0.3),
     0 0 45px rgba(17, 153, 250, 0.1);
 }
+
 
 /* ========================================
    TEXT SIDE
@@ -149,6 +157,7 @@
   text-align: left;
 }
 
+
 /* ========================================
    TOP LINE
 ======================================== */
@@ -162,6 +171,7 @@
   margin-bottom: 18px;
 }
 
+
 .project-number {
   font-size: 0.85rem;
   font-weight: 700;
@@ -170,6 +180,7 @@
 
   color: var(--accent);
 }
+
 
 .project-type {
   margin: 0;
@@ -182,6 +193,7 @@
   color: var(--accent);
 }
 
+
 /* ========================================
    PROJECT TITLE
 ======================================== */
@@ -193,6 +205,7 @@
 
   line-height: 1.05;
 }
+
 
 /* ========================================
    DESCRIPTION
@@ -209,6 +222,7 @@
   color: var(--text-secondary);
 }
 
+
 /* ========================================
    CONTRIBUTION
 ======================================== */
@@ -223,6 +237,7 @@
   border-left: 2px solid rgba(97, 218, 251, 0.5);
 }
 
+
 .project-contribution h4 {
   margin: 0 0 8px;
 
@@ -230,6 +245,7 @@
 
   color: var(--text-primary);
 }
+
 
 .project-contribution p {
   margin: 0;
@@ -239,6 +255,7 @@
 
   color: var(--text-secondary);
 }
+
 
 /* ========================================
    TECHNOLOGIES
@@ -252,6 +269,7 @@
 
   margin-bottom: 30px;
 }
+
 
 .project-technologies span {
   padding: 7px 12px;
@@ -267,6 +285,7 @@
   color: var(--accent);
 }
 
+
 /* ========================================
    PROJECT LINKS
 ======================================== */
@@ -277,6 +296,7 @@
 
   gap: 22px;
 }
+
 
 .project-links a {
   position: relative;
@@ -292,6 +312,7 @@
 
   transition: color 0.25s ease;
 }
+
 
 .project-links a::after {
   content: "";
@@ -309,13 +330,16 @@
   transition: width 0.25s ease;
 }
 
+
 .project-links a:hover {
   color: var(--accent);
 }
 
+
 .project-links a:hover::after {
   width: 100%;
 }
+
 
 /* ========================================
    VIDEO CONTAINER
@@ -338,11 +362,14 @@
   background: #050c14;
 }
 
+
 /* ========================================
    VIDEO
 
-   Responsive on all desktop viewport sizes.
-   The video always stays inside the card.
+   Entire video remains visible.
+
+   The video is aligned to the RIGHT so
+   the right edge is flush with the card.
 ======================================== */
 
 .project-video {
@@ -357,17 +384,13 @@
 
   max-width: 100%;
 
-  object-fit: cover;
+  object-fit: contain;
 
-  /*
-    Shifts the visible part slightly toward
-    the right without physically moving the
-    video outside of its container.
-  */
-  object-position: 70% center;
+  object-position: right center;
 
   filter: brightness(1);
 }
+
 
 /* ========================================
    VIDEO FADE
@@ -398,6 +421,7 @@
   );
 }
 
+
 /* ========================================
    DARK BACKGROUND BEHIND TEXT
 ======================================== */
@@ -423,6 +447,7 @@
     rgba(5, 12, 20, 0) 68%
   );
 }
+
 
 /* ========================================
    PROJECTS WITHOUT VIDEO
@@ -456,18 +481,22 @@
   color: rgba(255, 255, 255, 0.45);
 }
 
+
 /* ========================================
    TABLET
 ======================================== */
 
 @media (max-width: 900px) {
+
   .projects {
     padding: 120px 6%;
   }
 
+
   .projects-list {
     gap: 60px;
   }
+
 
   .project-card {
     min-height: auto;
@@ -478,6 +507,7 @@
     align-items: stretch;
   }
 
+
   .project-info {
     width: 100%;
 
@@ -485,6 +515,7 @@
 
     order: 2;
   }
+
 
   .project-video-container,
   .project-placeholder {
@@ -501,7 +532,10 @@
     order: 1;
 
     overflow: hidden;
+
+    background: #050c14;
   }
+
 
   .project-video {
     position: absolute;
@@ -513,9 +547,11 @@
 
     max-width: 100%;
 
-    object-fit: cover;
-    object-position: center;
+    object-fit: contain;
+
+    object-position: right center;
   }
+
 
   .project-video-fade {
     background: linear-gradient(
@@ -526,59 +562,73 @@
     );
   }
 
+
   .project-card-with-video::before {
     display: none;
   }
 }
+
 
 /* ========================================
    MOBILE
 ======================================== */
 
 @media (max-width: 600px) {
+
   .projects {
     padding: 100px 24px;
   }
+
 
   .projects-heading {
     margin-bottom: 60px;
   }
 
+
   .projects h2 {
     font-size: clamp(2.2rem, 10vw, 3rem);
   }
+
 
   .projects-intro {
     font-size: 1rem;
   }
 
+
   .projects-list {
     gap: 40px;
   }
+
 
   .project-card {
     border-radius: 14px;
   }
 
+
   .project-info {
     padding: 28px 22px 32px;
   }
+
 
   .project-info h3 {
     font-size: 2rem;
   }
 
+
   .project-description {
     font-size: 0.95rem;
   }
+
 
   .project-contribution p {
     font-size: 0.88rem;
   }
 
+
   .project-technologies {
     margin-bottom: 22px;
   }
+
 
   /* ========================================
      MOBILE PROJECT VIDEO
@@ -594,7 +644,10 @@
     aspect-ratio: 16 / 9;
 
     overflow: hidden;
+
+    background: #050c14;
   }
+
 
   .project-video {
     position: absolute;
@@ -606,14 +659,11 @@
 
     max-width: 100%;
 
-    object-fit: cover;
+    object-fit: contain;
 
-    /*
-      Keep the right side of the recording
-      slightly more visible on phones.
-    */
-    object-position: 70% center;
+    object-position: right center;
   }
+
 
   .project-video-fade {
     width: 100%;

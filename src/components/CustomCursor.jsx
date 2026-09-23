@@ -8,6 +8,7 @@ function CustomCursor() {
   });
 
   const [visible, setVisible] = useState(false);
+  const [clickable, setClickable] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (event) => {
@@ -17,30 +18,79 @@ function CustomCursor() {
       });
 
       setVisible(true);
+
+      /* ========================================
+         CHECK IF CURSOR IS OVER CLICKABLE ITEM
+      ======================================== */
+
+      const target = event.target;
+
+      const clickableElement = target.closest(
+        `
+        a,
+        button,
+        input,
+        select,
+        textarea,
+        [role="button"],
+        [role="link"],
+        [onclick],
+        .clickable
+        `
+      );
+
+      setClickable(Boolean(clickableElement));
     };
 
     const handleMouseLeave = () => {
       setVisible(false);
+      setClickable(false);
     };
 
     const handleMouseEnter = () => {
       setVisible(true);
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseleave", handleMouseLeave);
-    document.addEventListener("mouseenter", handleMouseEnter);
+    window.addEventListener(
+      "mousemove",
+      handleMouseMove
+    );
+
+    document.addEventListener(
+      "mouseleave",
+      handleMouseLeave
+    );
+
+    document.addEventListener(
+      "mouseenter",
+      handleMouseEnter
+    );
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseleave", handleMouseLeave);
-      document.removeEventListener("mouseenter", handleMouseEnter);
+      window.removeEventListener(
+        "mousemove",
+        handleMouseMove
+      );
+
+      document.removeEventListener(
+        "mouseleave",
+        handleMouseLeave
+      );
+
+      document.removeEventListener(
+        "mouseenter",
+        handleMouseEnter
+      );
     };
   }, []);
 
   return (
     <div
-      className={`custom-cursor ${visible ? "cursor-visible" : ""}`}
+      className={`
+        custom-cursor
+        ${visible ? "cursor-visible" : ""}
+        ${clickable ? "cursor-clickable" : ""}
+      `}
       style={{
         left: `${position.x}px`,
         top: `${position.y}px`,
