@@ -1,10 +1,5 @@
 import "../Styles/About.css";
 
-import profile from "../Public/profile.webp";
-import music from "../Public/music.webp";
-import football from "../Public/football.webp";
-import photo from "../Public/photo.webp";
-
 function About() {
   const handleImageMove = (event) => {
     const wrapper = event.currentTarget;
@@ -38,7 +33,7 @@ function About() {
 
     if (!image) return;
 
-    // Every image returns to exactly the same centered position
+    // Return image to centered position
     image.style.transform = "translate(0px, 0px) scale(1)";
   };
 
@@ -101,7 +96,7 @@ function About() {
 
           <div className="about-image-wrapper featured">
             <img
-              src={profile}
+              src="/profile.webp"
               alt="Sebastian"
               className="about-image"
               loading="lazy"
@@ -117,7 +112,7 @@ function About() {
             onMouseLeave={handleImageLeave}
           >
             <img
-              src={music}
+              src="/music.webp"
               alt="Sebastian performing music"
               className="about-image"
               loading="lazy"
@@ -133,7 +128,7 @@ function About() {
             onMouseLeave={handleImageLeave}
           >
             <img
-              src={football}
+              src="/football.webp"
               alt="Sebastian playing football"
               className="about-image"
               loading="lazy"
@@ -149,7 +144,7 @@ function About() {
             onMouseLeave={handleImageLeave}
           >
             <img
-              src={photo}
+              src="/photo.webp"
               alt="Sebastian working with photography"
               className="about-image"
               loading="lazy"

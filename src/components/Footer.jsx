@@ -1,5 +1,5 @@
 import "../Styles/Footer.css";
-import logo from "../Public/sa-logo.webp";
+
 
 function Footer() {
   return (
@@ -7,7 +7,7 @@ function Footer() {
       <div className="footer-content">
         <a href="#home" className="footer-brand" aria-label="Back to top">
           <img
-            src={logo}
+            src="/sa-logo.webp"
             alt="Sebastian Åkerman"
             className="footer-logo"
           />

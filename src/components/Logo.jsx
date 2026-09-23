@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import "../Styles/Logo.css";
-import logo from "../Public/sa-logo.webp";
+
 
 function Logo() {
   const logoRef = useRef(null);
@@ -42,14 +42,14 @@ function Logo() {
       >
         {/* Normal logo */}
         <img
-          src={logo}
+          src="/sa-logo.webp"
           alt="Sebastian Åkerman logo"
           className="logo-image"
         />
 
         {/* Metallic reflection copy */}
         <img
-          src={logo}
+          src="/sa-logo.webp"
           alt=""
           aria-hidden="true"
           className="logo-reflection-image"

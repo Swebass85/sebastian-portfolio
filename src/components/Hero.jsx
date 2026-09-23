@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import "../Styles/Hero.css";
-import logo from "../Public/sa-logo.webp";
+
 
 function Hero() {
   const heroLogoRef = useRef(null);
@@ -43,7 +43,7 @@ function Hero() {
         >
           {/* Normal logo */}
           <img
-            src={logo}
+            src="/sa-logo.webp"
             alt="Sebastian Åkerman logo"
             className="hero-logo-image"
           />

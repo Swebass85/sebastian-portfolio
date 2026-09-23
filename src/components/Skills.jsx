@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import "../Styles/Skills.css";
-import logo from "../Public/sa-logo.webp";
+
 
 const technicalSkills = [
   { name: "UX / UI", value: 95 },
@@ -89,8 +89,8 @@ function SkillBar({ name, value, isVisible, delay }) {
         >
           {/* SA logo follows the end of the progress bar */}
           <img
-            src={logo}
-            alt=""
+            src="/sa-logo.webp"
+            alt="Sebastian Akerman logotype"
             className="skill-logo"
             aria-hidden="true"
           />
