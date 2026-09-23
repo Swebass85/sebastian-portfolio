@@ -5,6 +5,7 @@ import music from "../assets/music.jpg";
 import football from "../assets/football.png";
 import photo from "../assets/photo.png";
 
+
 function About() {
   const handleImageMove = (event) => {
     const wrapper = event.currentTarget;
