@@ -8,8 +8,12 @@ function Resume() {
     setSelectedLanguage(language);
   };
 
-  const resetLanguage = () => {
-    setSelectedLanguage(null);
+  const switchLanguage = (event) => {
+    event.stopPropagation();
+
+    setSelectedLanguage((currentLanguage) =>
+      currentLanguage === "english" ? "swedish" : "english"
+    );
   };
 
   return (
@@ -36,7 +40,7 @@ function Resume() {
           <div className="flag-overlay english-flag">
             <img
               src="/Flag_of_the_United_Kingdom.webp"
-              alt="United Kingdom flag"
+              alt=""
             />
           </div>
 
@@ -64,7 +68,7 @@ function Resume() {
           <div className="flag-overlay swedish-flag">
             <img
               src="/Flag_of_Sweden.webp"
-              alt="Swedish flag"
+              alt=""
             />
           </div>
 
@@ -74,21 +78,40 @@ function Resume() {
             </div>
           )}
         </div>
+
+        {/* ========================================
+            LANGUAGE SWITCH BUTTON
+
+            English CV -> show Swedish flag
+            Swedish CV -> show British flag
+        ======================================== */}
+
+        {selectedLanguage && (
+          <button
+            className="resume-language-switch"
+            onClick={switchLanguage}
+            type="button"
+            aria-label={
+              selectedLanguage === "english"
+                ? "Switch to Swedish resume"
+                : "Switch to English resume"
+            }
+          >
+            <img
+              src={
+                selectedLanguage === "english"
+                  ? "/Flag_of_Sweden.webp"
+                  : "/Flag_of_the_United_Kingdom.webp"
+              }
+              alt={
+                selectedLanguage === "english"
+                  ? "Switch to Swedish"
+                  : "Switch to English"
+              }
+            />
+          </button>
+        )}
       </div>
-
-      {/* ========================================
-          RETURN TO LANGUAGE SELECTION
-      ======================================== */}
-
-      {selectedLanguage && (
-        <button
-          className="resume-reset"
-          onClick={resetLanguage}
-          type="button"
-        >
-          ← Change language
-        </button>
-      )}
     </section>
   );
 }

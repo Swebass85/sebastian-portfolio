@@ -27,7 +27,6 @@
   width: 100%;
   max-width: 900px;
 
-  /* A4 proportions */
   aspect-ratio: 210 / 297;
 
   overflow: hidden;
@@ -119,7 +118,7 @@
 
 
 /* ========================================
-   FLAG OVERLAYS
+   LARGE FLAG OVERLAYS
 ======================================== */
 
 .flag-overlay {
@@ -171,7 +170,7 @@
 
 
 /* ========================================
-   SLIGHT RESUME HOVER EFFECT
+   RESUME HOVER EFFECT
 ======================================== */
 
 .resume-layer::after {
@@ -229,29 +228,17 @@
 }
 
 
-/* ========================================
-   ENGLISH LABEL
-======================================== */
-
 .english-label {
   top: 6%;
   left: 6%;
 }
 
 
-/* ========================================
-   SWEDISH LABEL
-======================================== */
-
 .swedish-label {
   bottom: 6%;
   right: 6%;
 }
 
-
-/* ========================================
-   LABEL HOVER
-======================================== */
 
 .resume-english:hover .english-label {
   transform: translateX(8px);
@@ -280,8 +267,6 @@
   cursor: default;
 }
 
-
-/* Collapse Swedish resume */
 
 .resume-container.selected-english .resume-swedish {
   clip-path: polygon(
@@ -313,8 +298,6 @@
 }
 
 
-/* Collapse English resume */
-
 .resume-container.selected-swedish .resume-english {
   clip-path: polygon(
     0 0,
@@ -328,7 +311,7 @@
 
 
 /* ========================================
-   REMOVE FLAG AFTER SELECTION
+   REMOVE LARGE FLAG AFTER SELECTION
 ======================================== */
 
 .resume-container.selected-english
@@ -346,7 +329,7 @@
 
 
 /* ========================================
-   DISABLE HOVER AFTER SELECTION
+   DISABLE RESUME HOVER AFTER SELECTION
 ======================================== */
 
 .resume-container.selected-english
@@ -359,61 +342,111 @@
 
 
 /* ========================================
-   CHANGE LANGUAGE BUTTON
+   LANGUAGE SWITCH FLAG
 ======================================== */
 
-.resume-reset {
-  margin-top: 28px;
+.resume-language-switch {
+  position: absolute;
 
-  padding: 12px 26px;
+  right: 24px;
+  bottom: 24px;
 
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  z-index: 50;
 
-  border-radius: 30px;
+  width: 72px;
+  height: 52px;
 
-  background: rgba(255, 255, 255, 0.06);
+  padding: 0;
 
-  color: #ffffff;
+  border: 3px solid rgba(255, 255, 255, 0.9);
 
-  font-family: inherit;
+  border-radius: 8px;
 
-  font-size: 14px;
+  overflow: hidden;
 
-  font-weight: 500;
-
-  letter-spacing: 0.5px;
+  background: transparent;
 
   cursor: pointer;
 
-  backdrop-filter: blur(10px);
-
-  -webkit-backdrop-filter: blur(10px);
-
   box-shadow:
-    0 8px 25px rgba(0, 0, 0, 0.25);
+    0 5px 18px rgba(0, 0, 0, 0.4),
+    0 0 15px rgba(255, 255, 255, 0.25);
+
+  animation: flag-heartbeat 1.8s ease-in-out infinite;
 
   transition:
-    background 0.3s ease,
-    border-color 0.3s ease,
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
 }
 
 
-.resume-reset:hover {
-  background: rgba(255, 255, 255, 0.12);
+.resume-language-switch img {
+  width: 100%;
+  height: 100%;
 
-  border-color: rgba(255, 255, 255, 0.4);
+  display: block;
 
-  transform: translateY(-2px);
+  object-fit: cover;
+
+  pointer-events: none;
+}
+
+
+/* ========================================
+   FLAG HEARTBEAT
+======================================== */
+
+@keyframes flag-heartbeat {
+
+  0% {
+    transform: scale(1);
+  }
+
+  14% {
+    transform: scale(1.12);
+  }
+
+  28% {
+    transform: scale(1);
+  }
+
+  42% {
+    transform: scale(1.08);
+  }
+
+  70% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+/* ========================================
+   SWITCH FLAG HOVER
+======================================== */
+
+.resume-language-switch:hover {
+  animation-play-state: paused;
+
+  transform: scale(1.12);
+
+  filter: brightness(1.1);
 
   box-shadow:
-    0 12px 30px rgba(0, 0, 0, 0.35);
+    0 8px 25px rgba(0, 0, 0, 0.5),
+    0 0 22px rgba(255, 255, 255, 0.45);
 }
 
 
-.resume-reset:active {
-  transform: translateY(0);
+/* ========================================
+   SWITCH FLAG CLICK
+======================================== */
+
+.resume-language-switch:active {
+  transform: scale(0.95);
 }
 
 
@@ -430,6 +463,15 @@
 
   .resume-container {
     max-width: 750px;
+  }
+
+
+  .resume-language-switch {
+    width: 64px;
+    height: 46px;
+
+    right: 20px;
+    bottom: 20px;
   }
 }
 
@@ -476,12 +518,14 @@
   }
 
 
-  .resume-reset {
-    margin-top: 20px;
+  .resume-language-switch {
+    width: 54px;
+    height: 39px;
 
-    padding: 10px 20px;
+    right: 14px;
+    bottom: 14px;
 
-    font-size: 13px;
+    border-width: 2px;
   }
 }
 
@@ -513,4 +557,27 @@
   .flag-overlay img {
     opacity: 0.26;
   }
+
+
+  .resume-language-switch {
+    width: 46px;
+    height: 33px;
+
+    right: 10px;
+    bottom: 10px;
+  }
+}
+
+
+/* ========================================
+   ACCESSIBILITY
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .resume-language-switch {
+    animation: none;
+  }
+
 }
