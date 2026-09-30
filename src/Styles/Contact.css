@@ -5,19 +5,27 @@
 .contact {
   width: 100%;
   min-height: 100vh;
-  padding: 140px 8%;
+
   box-sizing: border-box;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  /*
+    Header ≈ 75px
+    + 10px spacing
+  */
+  padding: 85px 8% 50px;
 
-  scroll-margin-top: 80px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  scroll-margin-top: 75px;
 }
+
 
 .contact-content {
   width: 100%;
   max-width: 900px;
+
   margin: 0 auto;
 }
 
@@ -31,6 +39,7 @@
 
   font-size: 0.85rem;
   font-weight: 700;
+
   letter-spacing: 0.15em;
 
   color: var(--accent);
@@ -43,6 +52,7 @@
 
 .contact h2 {
   max-width: 750px;
+
   margin: 0 0 25px;
 
   font-size: clamp(2.5rem, 5vw, 4rem);
@@ -58,6 +68,7 @@
 
 .contact-intro {
   max-width: 650px;
+
   margin: 0 0 55px;
 
   font-size: 1.05rem;
@@ -108,9 +119,11 @@
   gap: 9px;
 }
 
+
 .contact-field label {
   font-size: 0.82rem;
   font-weight: 700;
+
   letter-spacing: 0.06em;
 
   color: var(--text-primary);
@@ -124,6 +137,7 @@
 .contact-field input,
 .contact-field textarea {
   width: 100%;
+
   box-sizing: border-box;
 
   padding: 15px 17px;
@@ -146,8 +160,10 @@
     box-shadow 0.3s ease;
 }
 
+
 .contact-field textarea {
   min-height: 170px;
+
   resize: vertical;
 }
 
@@ -190,6 +206,7 @@
   justify-content: flex-start;
 
   gap: 14px;
+
   margin-top: 5px;
 }
 
@@ -218,6 +235,7 @@
   font-family: inherit;
   font-size: 0.9rem;
   font-weight: 700;
+
   letter-spacing: 0.03em;
 
   color: var(--accent);
@@ -228,6 +246,7 @@
     transform 0.3s ease,
     box-shadow 0.3s ease;
 }
+
 
 .contact-button:hover {
   transform: translateY(-2px);
@@ -240,13 +259,14 @@
     0 0 40px rgba(97, 218, 251, 0.08);
 }
 
+
 .contact-button:active {
   transform: translateY(0);
 }
 
 
 /* ========================================
-   SEND BUTTON DISABLED
+   DISABLED BUTTON
 ======================================== */
 
 .contact-button:disabled {
@@ -255,12 +275,13 @@
   opacity: 0.55;
 
   transform: none;
+
   box-shadow: none;
 }
 
 
 /* ========================================
-   METALLIC LINKEDIN BADGE
+   LINKEDIN BUTTON
 ======================================== */
 
 .contact-linkedin {
@@ -307,11 +328,12 @@
 
 
 /* ========================================
-   LINKEDIN "IN" SYMBOL
+   LINKEDIN ICON
 ======================================== */
 
 .contact-linkedin .linkedin-svg {
   position: relative;
+
   z-index: 3;
 
   width: 27px;
@@ -333,6 +355,7 @@
 
 .contact-linkedin-shimmer {
   position: absolute;
+
   z-index: 2;
 
   top: -75%;
@@ -358,6 +381,7 @@
 
   animation: contactLinkedinShimmer 3.5s ease-in-out infinite;
 }
+
 
 @keyframes contactLinkedinShimmer {
   0% {
@@ -390,6 +414,7 @@
     0 0 40px rgba(97, 218, 251, 0.1);
 }
 
+
 .contact-linkedin:active {
   transform: translateY(0) scale(1);
 }
@@ -406,9 +431,11 @@
   font-weight: 600;
 }
 
+
 .contact-status.success {
   color: #73e6a5;
 }
+
 
 .contact-status.error {
   color: #ff7474;
@@ -420,9 +447,18 @@
 ======================================== */
 
 @media (max-width: 900px) {
+
   .contact {
-    padding: 120px 6%;
+    /*
+      Keep exactly the same vertical position:
+      75px header + 10px gap
+    */
+    padding:
+      85px
+      6%
+      40px;
   }
+
 
   .contact-content {
     max-width: 750px;
@@ -435,50 +471,73 @@
 ======================================== */
 
 @media (max-width: 600px) {
+
   .contact {
     min-height: auto;
-    padding: 100px 24px;
+
+    /*
+      Same 10px spacing beneath header.
+    */
+    padding:
+      85px
+      24px
+      40px;
   }
+
 
   .contact h2 {
     font-size: clamp(2.2rem, 10vw, 3rem);
   }
 
+
   .contact-intro {
     margin-bottom: 40px;
+
     font-size: 1rem;
   }
 
+
   .contact-row {
     grid-template-columns: 1fr;
+
     gap: 25px;
   }
+
 
   .contact-form {
     gap: 22px;
   }
+
 
   .contact-field input,
   .contact-field textarea {
     padding: 14px 15px;
   }
 
-  .contact-actions {
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
 
+  .contact-actions {
     gap: 12px;
   }
 
+
   .contact-button {
     height: 48px;
+
     padding: 0 22px;
   }
+}
 
-  .contact-linkedin {
-    width: 48px;
-    height: 48px;
-    flex-basis: 48px;
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .contact-button,
+  .contact-linkedin,
+  .contact-linkedin-shimmer {
+    transition: none;
+    animation: none;
   }
 }
