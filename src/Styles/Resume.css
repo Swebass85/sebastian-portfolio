@@ -11,7 +11,7 @@
   align-items: center;
   justify-content: center;
 
-  padding: 80px 20px;
+  padding: 60px 40px;
 
   box-sizing: border-box;
 }
@@ -24,10 +24,18 @@
 .resume-container {
   position: relative;
 
-  width: 100%;
-  max-width: 900px;
+  /*
+    Size primarily from viewport height.
+    This keeps the complete A4 resume visible.
+  */
+  height: calc(100vh - 120px);
+  width: auto;
 
+  /* A4 proportions */
   aspect-ratio: 210 / 297;
+
+  /* Horizontal safety margin */
+  max-width: calc(100vw - 80px);
 
   overflow: hidden;
 
@@ -36,7 +44,7 @@
   border-radius: 10px;
 
   box-shadow:
-    0 30px 80px rgba(0, 0, 0, 0.55),
+    0 25px 70px rgba(0, 0, 0, 0.5),
     0 0 40px rgba(70, 150, 255, 0.1);
 }
 
@@ -228,17 +236,29 @@
 }
 
 
+/* ========================================
+   ENGLISH LABEL
+======================================== */
+
 .english-label {
   top: 6%;
   left: 6%;
 }
 
 
+/* ========================================
+   SWEDISH LABEL
+======================================== */
+
 .swedish-label {
   bottom: 6%;
   right: 6%;
 }
 
+
+/* ========================================
+   LABEL HOVER
+======================================== */
 
 .resume-english:hover .english-label {
   transform: translateX(8px);
@@ -267,6 +287,8 @@
   cursor: default;
 }
 
+
+/* Collapse Swedish resume */
 
 .resume-container.selected-english .resume-swedish {
   clip-path: polygon(
@@ -297,6 +319,8 @@
   cursor: default;
 }
 
+
+/* Collapse English resume */
 
 .resume-container.selected-swedish .resume-english {
   clip-path: polygon(
@@ -348,13 +372,13 @@
 .resume-language-switch {
   position: absolute;
 
-  right: 24px;
-  bottom: 24px;
+  right: 22px;
+  bottom: 22px;
 
   z-index: 50;
 
-  width: 72px;
-  height: 52px;
+  width: 68px;
+  height: 49px;
 
   padding: 0;
 
@@ -457,21 +481,23 @@
 @media (max-width: 1024px) {
 
   #resume {
-    padding: 70px 30px;
+    padding: 50px 30px;
   }
 
 
   .resume-container {
-    max-width: 750px;
+    height: calc(100vh - 100px);
+
+    max-width: calc(100vw - 60px);
   }
 
 
   .resume-language-switch {
-    width: 64px;
-    height: 46px;
+    width: 60px;
+    height: 43px;
 
-    right: 20px;
-    bottom: 20px;
+    right: 18px;
+    bottom: 18px;
   }
 }
 
@@ -483,14 +509,25 @@
 @media (max-width: 768px) {
 
   #resume {
-    min-height: auto;
+    min-height: 100vh;
 
-    padding: 50px 12px;
+    padding: 40px 18px;
   }
 
 
   .resume-container {
-    width: 100%;
+    /*
+      Mobile screens are narrow, so width
+      becomes the limiting dimension.
+    */
+
+    width: calc(100vw - 36px);
+    height: auto;
+
+    max-width: 100%;
+    max-height: calc(100vh - 80px);
+
+    aspect-ratio: 210 / 297;
 
     border-radius: 6px;
 
@@ -519,8 +556,8 @@
 
 
   .resume-language-switch {
-    width: 54px;
-    height: 39px;
+    width: 52px;
+    height: 37px;
 
     right: 14px;
     bottom: 14px;
@@ -537,12 +574,15 @@
 @media (max-width: 480px) {
 
   #resume {
-    padding-left: 8px;
-    padding-right: 8px;
+    padding: 30px 12px;
   }
 
 
   .resume-container {
+    width: calc(100vw - 24px);
+
+    max-height: calc(100vh - 60px);
+
     border-radius: 4px;
   }
 
@@ -560,11 +600,29 @@
 
 
   .resume-language-switch {
-    width: 46px;
-    height: 33px;
+    width: 44px;
+    height: 32px;
 
     right: 10px;
     bottom: 10px;
+  }
+}
+
+
+/* ========================================
+   SHORT DESKTOP SCREENS
+======================================== */
+
+@media (min-width: 769px) and (max-height: 750px) {
+
+  #resume {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+
+  .resume-container {
+    height: calc(100vh - 80px);
   }
 }
 
@@ -580,4 +638,8 @@
     animation: none;
   }
 
+
+  .resume-layer {
+    transition: none;
+  }
 }
