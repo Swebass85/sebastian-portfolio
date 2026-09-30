@@ -88,17 +88,7 @@
 
 /* ========================================
    ENGLISH RESUME
-
-   TOP-LEFT HALF
-
-   0,0 ---------------- 100%,0
-   |                  /
-   |               /
-   |            /
-   |         /
-   |      /
-   |   /
-   0,100%
+   TOP-LEFT TRIANGLE
 ======================================== */
 
 .resume-english {
@@ -114,8 +104,7 @@
 
 /* ========================================
    SWEDISH RESUME
-
-   BOTTOM-RIGHT HALF
+   BOTTOM-RIGHT TRIANGLE
 ======================================== */
 
 .resume-swedish {
@@ -276,9 +265,6 @@
 
 /* ========================================
    ENGLISH SELECTED
-
-   English triangle expands to cover
-   the entire resume.
 ======================================== */
 
 .resume-container.selected-english .resume-english {
@@ -295,7 +281,8 @@
 }
 
 
-/* Swedish side collapses */
+/* Collapse Swedish resume */
+
 .resume-container.selected-english .resume-swedish {
   clip-path: polygon(
     100% 100%,
@@ -310,9 +297,6 @@
 
 /* ========================================
    SWEDISH SELECTED
-
-   Swedish triangle expands to cover
-   the entire resume.
 ======================================== */
 
 .resume-container.selected-swedish .resume-swedish {
@@ -329,7 +313,8 @@
 }
 
 
-/* English side collapses */
+/* Collapse English resume */
+
 .resume-container.selected-swedish .resume-english {
   clip-path: polygon(
     0 0,
@@ -343,7 +328,7 @@
 
 
 /* ========================================
-   REMOVE FLAGS AFTER SELECTION
+   REMOVE FLAG AFTER SELECTION
 ======================================== */
 
 .resume-container.selected-english
@@ -401,6 +386,7 @@
   cursor: pointer;
 
   backdrop-filter: blur(10px);
+
   -webkit-backdrop-filter: blur(10px);
 
   box-shadow:
@@ -440,6 +426,7 @@
   #resume {
     padding: 70px 30px;
   }
+
 
   .resume-container {
     max-width: 750px;
