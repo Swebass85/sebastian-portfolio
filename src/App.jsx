@@ -10,32 +10,10 @@ import Contact from "./components/Contact";
 import CustomCursor from "./components/CustomCursor";
 import Footer from "./components/Footer";
 
-
 function App() {
-  const handleVideoLoaded = (event) => {
-    event.currentTarget.defaultPlaybackRate = 1.5;
-    event.currentTarget.playbackRate = 1.5;
-  };
-
   return (
     <>
       <CustomCursor />
-
-      <div className="background-video-container">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="background-video"
-          onLoadedMetadata={handleVideoLoaded}
-        >
-          <source
-            src="/videos/background.mp4"
-            type="video/mp4"
-          />
-        </video>
-      </div>
 
       <Header />
 
