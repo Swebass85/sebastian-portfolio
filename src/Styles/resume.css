@@ -1,0 +1,529 @@
+/* ========================================
+   RESUME SECTION
+======================================== */
+
+#resume {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 80px 20px;
+
+  box-sizing: border-box;
+}
+
+
+/* ========================================
+   RESUME CONTAINER
+======================================== */
+
+.resume-container {
+  position: relative;
+
+  width: 100%;
+  max-width: 900px;
+
+  /* A4 proportions */
+  aspect-ratio: 210 / 297;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.55),
+    0 0 40px rgba(70, 150, 255, 0.1);
+}
+
+
+/* ========================================
+   BOTH RESUMES
+======================================== */
+
+.resume-layer {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  transition:
+    clip-path 0.9s cubic-bezier(0.77, 0, 0.18, 1),
+    opacity 0.5s ease;
+}
+
+
+/* ========================================
+   RESUME IMAGES
+======================================== */
+
+.resume-image {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+  user-select: none;
+
+  pointer-events: none;
+}
+
+
+/* ========================================
+   ENGLISH RESUME
+
+   TOP-LEFT HALF
+
+   0,0 ---------------- 100%,0
+   |                  /
+   |               /
+   |            /
+   |         /
+   |      /
+   |   /
+   0,100%
+======================================== */
+
+.resume-english {
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    0 100%
+  );
+
+  z-index: 2;
+}
+
+
+/* ========================================
+   SWEDISH RESUME
+
+   BOTTOM-RIGHT HALF
+======================================== */
+
+.resume-swedish {
+  clip-path: polygon(
+    100% 0,
+    100% 100%,
+    0 100%
+  );
+
+  z-index: 2;
+}
+
+
+/* ========================================
+   FLAG OVERLAYS
+======================================== */
+
+.flag-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+
+  z-index: 5;
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.5s ease;
+}
+
+
+.flag-overlay img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+  opacity: 0.22;
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.5s ease,
+    filter 0.35s ease;
+}
+
+
+/* ========================================
+   FLAG HOVER EFFECT
+======================================== */
+
+.resume-layer:hover .flag-overlay img {
+  opacity: 0.38;
+
+  transform: scale(1.025);
+
+  filter: saturate(1.15);
+}
+
+
+/* ========================================
+   SLIGHT RESUME HOVER EFFECT
+======================================== */
+
+.resume-layer::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 6;
+
+  pointer-events: none;
+
+  background: rgba(255, 255, 255, 0);
+
+  transition: background 0.3s ease;
+}
+
+
+.resume-layer:hover::after {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+
+/* ========================================
+   LANGUAGE LABELS
+======================================== */
+
+.language-label {
+  position: absolute;
+
+  z-index: 10;
+
+  color: #ffffff;
+
+  font-size: clamp(18px, 3vw, 32px);
+
+  font-weight: 700;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+
+  pointer-events: none;
+
+  user-select: none;
+
+  text-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.8),
+    0 0 15px rgba(0, 0, 0, 0.7);
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+
+/* ========================================
+   ENGLISH LABEL
+======================================== */
+
+.english-label {
+  top: 6%;
+  left: 6%;
+}
+
+
+/* ========================================
+   SWEDISH LABEL
+======================================== */
+
+.swedish-label {
+  bottom: 6%;
+  right: 6%;
+}
+
+
+/* ========================================
+   LABEL HOVER
+======================================== */
+
+.resume-english:hover .english-label {
+  transform: translateX(8px);
+}
+
+
+.resume-swedish:hover .swedish-label {
+  transform: translateX(-8px);
+}
+
+
+/* ========================================
+   ENGLISH SELECTED
+
+   English triangle expands to cover
+   the entire resume.
+======================================== */
+
+.resume-container.selected-english .resume-english {
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    0 100%
+  );
+
+  z-index: 10;
+
+  cursor: default;
+}
+
+
+/* Swedish side collapses */
+.resume-container.selected-english .resume-swedish {
+  clip-path: polygon(
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    100% 100%
+  );
+
+  pointer-events: none;
+}
+
+
+/* ========================================
+   SWEDISH SELECTED
+
+   Swedish triangle expands to cover
+   the entire resume.
+======================================== */
+
+.resume-container.selected-swedish .resume-swedish {
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    0 100%
+  );
+
+  z-index: 10;
+
+  cursor: default;
+}
+
+
+/* English side collapses */
+.resume-container.selected-swedish .resume-english {
+  clip-path: polygon(
+    0 0,
+    0 0,
+    0 0,
+    0 0
+  );
+
+  pointer-events: none;
+}
+
+
+/* ========================================
+   REMOVE FLAGS AFTER SELECTION
+======================================== */
+
+.resume-container.selected-english
+.resume-english
+.flag-overlay {
+  opacity: 0;
+}
+
+
+.resume-container.selected-swedish
+.resume-swedish
+.flag-overlay {
+  opacity: 0;
+}
+
+
+/* ========================================
+   DISABLE HOVER AFTER SELECTION
+======================================== */
+
+.resume-container.selected-english
+.resume-english:hover::after,
+
+.resume-container.selected-swedish
+.resume-swedish:hover::after {
+  background: transparent;
+}
+
+
+/* ========================================
+   CHANGE LANGUAGE BUTTON
+======================================== */
+
+.resume-reset {
+  margin-top: 28px;
+
+  padding: 12px 26px;
+
+  border: 1px solid rgba(255, 255, 255, 0.22);
+
+  border-radius: 30px;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.5px;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.25);
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+.resume-reset:hover {
+  background: rgba(255, 255, 255, 0.12);
+
+  border-color: rgba(255, 255, 255, 0.4);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+
+.resume-reset:active {
+  transform: translateY(0);
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1024px) {
+
+  #resume {
+    padding: 70px 30px;
+  }
+
+  .resume-container {
+    max-width: 750px;
+  }
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+
+  #resume {
+    min-height: auto;
+
+    padding: 50px 12px;
+  }
+
+
+  .resume-container {
+    width: 100%;
+
+    border-radius: 6px;
+
+    box-shadow:
+      0 20px 50px rgba(0, 0, 0, 0.5);
+  }
+
+
+  .language-label {
+    font-size: 16px;
+
+    letter-spacing: 2px;
+  }
+
+
+  .english-label {
+    top: 4%;
+    left: 5%;
+  }
+
+
+  .swedish-label {
+    bottom: 4%;
+    right: 5%;
+  }
+
+
+  .resume-reset {
+    margin-top: 20px;
+
+    padding: 10px 20px;
+
+    font-size: 13px;
+  }
+}
+
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 480px) {
+
+  #resume {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+
+  .resume-container {
+    border-radius: 4px;
+  }
+
+
+  .language-label {
+    font-size: 13px;
+
+    letter-spacing: 1.5px;
+  }
+
+
+  .flag-overlay img {
+    opacity: 0.26;
+  }
+}
