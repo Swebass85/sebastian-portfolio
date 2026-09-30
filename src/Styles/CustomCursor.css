@@ -1,5 +1,6 @@
 /* ========================================
    HIDE DEFAULT BROWSER CURSOR
+   DESKTOP ONLY
 ======================================== */
 
 html,
@@ -184,8 +185,7 @@ body * {
    CLICKABLE ITEM — CENTER ILLUMINATION
 ======================================== */
 
-.custom-cursor.cursor-clickable
-.cursor-dot {
+.custom-cursor.cursor-clickable .cursor-dot {
   width: 7px;
   height: 7px;
 
@@ -208,8 +208,7 @@ body * {
    CLICKABLE ITEM — SUBTLE ORBIT RESPONSE
 ======================================== */
 
-.custom-cursor.cursor-clickable
-.cursor-orbit {
+.custom-cursor.cursor-clickable .cursor-orbit {
   opacity: 1;
 
   filter:
@@ -219,10 +218,13 @@ body * {
 
 
 /* ========================================
-   MOBILE — RESTORE NORMAL CURSOR
+   TABLET + MOBILE
+
+   Custom React cursor is disabled at the
+   same breakpoint as the hamburger menu.
 ======================================== */
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
 
   html,
   body,
@@ -234,12 +236,61 @@ body * {
   a,
   button,
   [role="button"],
-  [role="link"] {
-    cursor: pointer !important;
+  [role="link"],
+  input,
+  textarea,
+  select,
+  label {
+    cursor: auto !important;
   }
 
 
   .custom-cursor {
     display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+}
+
+
+/* ========================================
+   TOUCH DEVICES
+
+   Extra protection for phones/tablets
+   regardless of screen width.
+======================================== */
+
+@media (hover: none) and (pointer: coarse) {
+
+  html,
+  body,
+  body * {
+    cursor: auto !important;
+  }
+
+
+  .custom-cursor {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+}
+
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .cursor-atom {
+    animation: none;
+  }
+
+
+  .custom-cursor,
+  .cursor-dot {
+    transition: none;
   }
 }
