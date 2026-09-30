@@ -74,12 +74,7 @@ main {
 
 /* ========================================
    GLOBAL SECTION LAYOUT
-
-   Sections are centered horizontally.
-
-   When clicking a navigation link,
-   the section stops just underneath
-   the fixed header.
+   DESKTOP
 ======================================== */
 
 main > section {
@@ -90,27 +85,9 @@ main > section {
   margin-left: auto;
   margin-right: auto;
 
-  /*
-    Offset for fixed desktop header.
-    Adjust this number slightly if the
-    header height changes.
-  */
-  scroll-margin-top: 86px;
+  padding-top: clamp(70px, 8vh, 110px);
+  padding-bottom: clamp(70px, 8vh, 110px);
 
-  /*
-    Only a very small gap between the
-    header and the component content.
-  */
-  padding-top: 5px;
-
-  /*
-    Space AFTER each component.
-  */
-  padding-bottom: 80px;
-
-  /*
-    Responsive horizontal margins.
-  */
   padding-left: clamp(24px, 5vw, 80px);
   padding-right: clamp(24px, 5vw, 80px);
 
@@ -120,9 +97,6 @@ main > section {
 
 /* ========================================
    STANDARD SECTION CONTAINER
-
-   Keeps component content centered
-   horizontally.
 ======================================== */
 
 .section-container {
@@ -168,16 +142,13 @@ img {
 
 /* ========================================
    LARGE DESKTOP
-   1600px+
 ======================================== */
 
 @media (min-width: 1600px) {
 
   main > section {
-    scroll-margin-top: 86px;
-
-    padding-top: 5px;
-    padding-bottom: 90px;
+    padding-top: 110px;
+    padding-bottom: 110px;
 
     padding-left: 100px;
     padding-right: 100px;
@@ -191,15 +162,13 @@ img {
 
 
 /* ========================================
-   STANDARD DESKTOP / LAPTOP
+   LAPTOP
 ======================================== */
 
-@media (max-width: 1200px) {
+@media (max-width: 1200px) and (min-width: 901px) {
 
   main > section {
-    scroll-margin-top: 86px;
-
-    padding-top: 5px;
+    padding-top: 80px;
     padding-bottom: 80px;
 
     padding-left: 50px;
@@ -215,19 +184,32 @@ img {
 
 /* ========================================
    TABLET
-   Hamburger navigation begins at 900px.
+   900px AND BELOW
+
+   Navigation anchors stop underneath
+   the fixed hamburger header.
+
+   Only a small gap is added above
+   the component content.
 ======================================== */
 
 @media (max-width: 900px) {
 
   main > section {
+    width: 100%;
+
+    min-height: 0;
+
     scroll-margin-top: 76px;
 
     padding-top: 5px;
-    padding-bottom: 70px;
+    padding-bottom: 60px;
 
     padding-left: 30px;
     padding-right: 30px;
+
+    margin-left: auto;
+    margin-right: auto;
   }
 
 
@@ -248,34 +230,15 @@ img {
 @media (max-width: 768px) {
 
   main > section {
-    width: 100%;
-
-    /*
-      Keeps each major section at least
-      one viewport tall while allowing
-      taller content to expand naturally.
-    */
-    min-height: 100vh;
+    min-height: 0;
 
     scroll-margin-top: 72px;
 
     padding-top: 5px;
-    padding-bottom: 65px;
+    padding-bottom: 55px;
 
     padding-left: 22px;
     padding-right: 22px;
-
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-
-  .section-container {
-    width: 100%;
-    max-width: 100%;
-
-    margin-left: auto;
-    margin-right: auto;
   }
 }
 
@@ -290,7 +253,7 @@ img {
     scroll-margin-top: 68px;
 
     padding-top: 5px;
-    padding-bottom: 60px;
+    padding-bottom: 50px;
 
     padding-left: 16px;
     padding-right: 16px;
@@ -308,7 +271,7 @@ img {
     scroll-margin-top: 66px;
 
     padding-top: 5px;
-    padding-bottom: 55px;
+    padding-bottom: 45px;
 
     padding-left: 12px;
     padding-right: 12px;
@@ -317,13 +280,13 @@ img {
 
 
 /* ========================================
-   SHORT DESKTOP / LAPTOP SCREENS
+   SHORT DESKTOP / LAPTOP
 ======================================== */
 
-@media (min-width: 769px) and (max-height: 750px) {
+@media (min-width: 901px) and (max-height: 750px) {
 
   main > section {
-    padding-top: 5px;
-    padding-bottom: 60px;
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
 }
