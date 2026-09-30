@@ -75,12 +75,11 @@ main {
 /* ========================================
    GLOBAL SECTION LAYOUT
 
-   Every direct section inside <main>
-   receives consistent spacing.
+   Sections are centered horizontally.
 
-   Sections are centered while allowing
-   their internal text alignment to remain
-   controlled by each component.
+   When clicking a navigation link,
+   the section stops just underneath
+   the fixed header.
 ======================================== */
 
 main > section {
@@ -91,9 +90,27 @@ main > section {
   margin-left: auto;
   margin-right: auto;
 
-  padding-top: clamp(70px, 8vh, 110px);
-  padding-bottom: clamp(70px, 8vh, 110px);
+  /*
+    Offset for fixed desktop header.
+    Adjust this number slightly if the
+    header height changes.
+  */
+  scroll-margin-top: 86px;
 
+  /*
+    Only a very small gap between the
+    header and the component content.
+  */
+  padding-top: 5px;
+
+  /*
+    Space AFTER each component.
+  */
+  padding-bottom: 80px;
+
+  /*
+    Responsive horizontal margins.
+  */
   padding-left: clamp(24px, 5vw, 80px);
   padding-right: clamp(24px, 5vw, 80px);
 
@@ -103,6 +120,9 @@ main > section {
 
 /* ========================================
    STANDARD SECTION CONTAINER
+
+   Keeps component content centered
+   horizontally.
 ======================================== */
 
 .section-container {
@@ -154,8 +174,10 @@ img {
 @media (min-width: 1600px) {
 
   main > section {
-    padding-top: 110px;
-    padding-bottom: 110px;
+    scroll-margin-top: 86px;
+
+    padding-top: 5px;
+    padding-bottom: 90px;
 
     padding-left: 100px;
     padding-right: 100px;
@@ -175,7 +197,9 @@ img {
 @media (max-width: 1200px) {
 
   main > section {
-    padding-top: 80px;
+    scroll-margin-top: 86px;
+
+    padding-top: 5px;
     padding-bottom: 80px;
 
     padding-left: 50px;
@@ -191,12 +215,15 @@ img {
 
 /* ========================================
    TABLET
+   Hamburger navigation begins at 900px.
 ======================================== */
 
 @media (max-width: 900px) {
 
   main > section {
-    padding-top: 70px;
+    scroll-margin-top: 76px;
+
+    padding-top: 5px;
     padding-bottom: 70px;
 
     padding-left: 30px;
@@ -223,10 +250,17 @@ img {
   main > section {
     width: 100%;
 
+    /*
+      Keeps each major section at least
+      one viewport tall while allowing
+      taller content to expand naturally.
+    */
     min-height: 100vh;
 
-    padding-top: 70px;
-    padding-bottom: 70px;
+    scroll-margin-top: 72px;
+
+    padding-top: 5px;
+    padding-bottom: 65px;
 
     padding-left: 22px;
     padding-right: 22px;
@@ -253,7 +287,9 @@ img {
 @media (max-width: 480px) {
 
   main > section {
-    padding-top: 60px;
+    scroll-margin-top: 68px;
+
+    padding-top: 5px;
     padding-bottom: 60px;
 
     padding-left: 16px;
@@ -269,8 +305,10 @@ img {
 @media (max-width: 360px) {
 
   main > section {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    scroll-margin-top: 66px;
+
+    padding-top: 5px;
+    padding-bottom: 55px;
 
     padding-left: 12px;
     padding-right: 12px;
@@ -285,7 +323,7 @@ img {
 @media (min-width: 769px) and (max-height: 750px) {
 
   main > section {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 5px;
+    padding-bottom: 60px;
   }
 }
