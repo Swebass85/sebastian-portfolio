@@ -5,10 +5,11 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
-import Resume from "./components/cv";
+import Resume from "./components/resume";
 import Contact from "./components/Contact";
 import CustomCursor from "./components/CustomCursor";
 import Footer from "./components/Footer";
+
 
 function App() {
   const handleVideoLoaded = (event) => {
