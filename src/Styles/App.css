@@ -74,7 +74,12 @@ main {
 
 /* ========================================
    GLOBAL SECTION LAYOUT
-   DESKTOP
+
+   Every direct section inside <main>
+   receives consistent spacing.
+
+   This centers the SECTION itself,
+   but does NOT force text to be centered.
 ======================================== */
 
 main > section {
@@ -142,6 +147,7 @@ img {
 
 /* ========================================
    LARGE DESKTOP
+   1600px+
 ======================================== */
 
 @media (min-width: 1600px) {
@@ -162,10 +168,10 @@ img {
 
 
 /* ========================================
-   LAPTOP
+   STANDARD DESKTOP / LAPTOP
 ======================================== */
 
-@media (max-width: 1200px) and (min-width: 901px) {
+@media (max-width: 1200px) {
 
   main > section {
     padding-top: 80px;
@@ -184,32 +190,16 @@ img {
 
 /* ========================================
    TABLET
-   900px AND BELOW
-
-   Navigation anchors stop underneath
-   the fixed hamburger header.
-
-   Only a small gap is added above
-   the component content.
 ======================================== */
 
 @media (max-width: 900px) {
 
   main > section {
-    width: 100%;
-
-    min-height: 0;
-
-    scroll-margin-top: 76px;
-
-    padding-top: 5px;
-    padding-bottom: 60px;
+    padding-top: 70px;
+    padding-bottom: 70px;
 
     padding-left: 30px;
     padding-right: 30px;
-
-    margin-left: auto;
-    margin-right: auto;
   }
 
 
@@ -230,15 +220,27 @@ img {
 @media (max-width: 768px) {
 
   main > section {
-    min-height: 0;
+    width: 100%;
 
-    scroll-margin-top: 72px;
+    min-height: 100vh;
 
-    padding-top: 5px;
-    padding-bottom: 55px;
+    padding-top: 70px;
+    padding-bottom: 70px;
 
     padding-left: 22px;
     padding-right: 22px;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  .section-container {
+    width: 100%;
+    max-width: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -250,10 +252,8 @@ img {
 @media (max-width: 480px) {
 
   main > section {
-    scroll-margin-top: 68px;
-
-    padding-top: 5px;
-    padding-bottom: 50px;
+    padding-top: 60px;
+    padding-bottom: 60px;
 
     padding-left: 16px;
     padding-right: 16px;
@@ -268,10 +268,8 @@ img {
 @media (max-width: 360px) {
 
   main > section {
-    scroll-margin-top: 66px;
-
-    padding-top: 5px;
-    padding-bottom: 45px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 
     padding-left: 12px;
     padding-right: 12px;
@@ -280,10 +278,10 @@ img {
 
 
 /* ========================================
-   SHORT DESKTOP / LAPTOP
+   SHORT DESKTOP / LAPTOP SCREENS
 ======================================== */
 
-@media (min-width: 901px) and (max-height: 750px) {
+@media (min-width: 769px) and (max-height: 750px) {
 
   main > section {
     padding-top: 50px;

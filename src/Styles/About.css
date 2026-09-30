@@ -18,6 +18,7 @@
   scroll-margin-top: 80px;
 }
 
+
 /* ========================================
    MAIN ABOUT LAYOUT
 ======================================== */
@@ -37,6 +38,7 @@
   align-items: center;
 }
 
+
 /* ========================================
    TEXT COLUMN
 ======================================== */
@@ -47,10 +49,12 @@
 
   display: flex;
   flex-direction: column;
+
   align-items: flex-start;
 
   text-align: left;
 }
+
 
 /* ========================================
    ABOUT ME LABEL
@@ -63,12 +67,14 @@
 
   font-size: 0.85rem;
   font-weight: 700;
+
   letter-spacing: 0.15em;
 
   color: var(--accent);
 
   text-align: left;
 }
+
 
 /* ========================================
    MAIN HEADING
@@ -85,6 +91,7 @@
 
   text-align: left;
 }
+
 
 /* ========================================
    PARAGRAPHS
@@ -104,9 +111,11 @@
   text-align: left;
 }
 
+
 .about-text p:last-child {
   margin-bottom: 0;
 }
+
 
 /* ========================================
    IMAGE COLUMN
@@ -124,6 +133,7 @@
   gap: 30px;
 }
 
+
 /* ========================================
    CIRCULAR IMAGE WRAPPER
 ======================================== */
@@ -139,6 +149,7 @@
   box-sizing: border-box;
 
   border-radius: 50%;
+
   overflow: hidden;
 
   border: 3px solid rgba(97, 218, 251, 0.45);
@@ -156,11 +167,9 @@
   z-index: 1;
 }
 
+
 /* ========================================
    ALL IMAGES
-
-   Every image uses EXACTLY the same
-   positioning inside its circle.
 ======================================== */
 
 .about-image {
@@ -184,11 +193,13 @@
   transform: translate(0, 0) scale(1);
 
   user-select: none;
+
   -webkit-user-select: none;
   -webkit-user-drag: none;
 
   pointer-events: none;
 }
+
 
 /* ========================================
    FEATURED PROFILE IMAGE
@@ -204,6 +215,7 @@
     0 0 55px rgba(17, 153, 250, 0.2);
 }
 
+
 /* ========================================
    PROFILE HOVER
 ======================================== */
@@ -218,14 +230,17 @@
     0 0 65px rgba(17, 153, 250, 0.3);
 }
 
+
 /* ========================================
    INTERACTIVE IMAGES
 ======================================== */
 
 .about-image-wrapper.interactive .about-image {
   transition: transform 0.12s ease-out;
+
   will-change: transform;
 }
+
 
 /* ========================================
    INTERACTIVE IMAGE HOVER
@@ -240,6 +255,7 @@
     0 0 30px rgba(17, 153, 250, 0.6),
     0 0 65px rgba(17, 153, 250, 0.3);
 }
+
 
 /* ========================================
    SHRINK PROFILE WHEN ANOTHER
@@ -257,44 +273,130 @@
     0 0 35px rgba(17, 153, 250, 0.1);
 }
 
+
 /* ========================================
    TABLET
+   1100px AND BELOW
+
+   The complete About component becomes
+   one centered column.
+
+   Text remains left aligned inside the
+   centered content area.
 ======================================== */
 
 @media (max-width: 1100px) {
+
   .about {
-    padding: 120px 6%;
+    width: 100%;
+
+    min-height: auto;
+
+    padding: 100px 40px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: flex-start;
   }
+
 
   .about-content {
-    max-width: 900px;
+    width: 100%;
+    max-width: 700px;
 
-    grid-template-columns: minmax(0, 1fr) 180px;
+    margin: 0 auto;
 
-    column-gap: 50px;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 70px;
   }
+
+
+  .about-text {
+    width: 100%;
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    text-align: left;
+  }
+
+
+  .about .section-label {
+    width: 100%;
+
+    text-align: left;
+  }
+
+
+  .about h2 {
+    width: 100%;
+    max-width: 700px;
+
+    text-align: left;
+  }
+
+
+  .about-text p:not(.section-label) {
+    width: 100%;
+    max-width: 700px;
+
+    text-align: left;
+  }
+
+
+  /* ========================================
+     TABLET IMAGE GRID
+  ======================================== */
 
   .about-images {
-    width: 180px;
-    gap: 28px;
+    width: 100%;
+    max-width: 600px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 165px);
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 55px 70px;
   }
+
 
   .about-image-wrapper {
     width: 165px;
     height: 165px;
+
+    margin: 0 auto;
   }
+
 
   .about-image-wrapper:first-child {
-    transform: scale(1.4);
+    transform: scale(1.3);
   }
+
 
   .about-image-wrapper:first-child:hover {
-    transform: scale(1.4);
+    transform: scale(1.3);
   }
 
+
   .about-image-wrapper.interactive:hover {
-    transform: scale(1.4);
+    transform: scale(1.3);
   }
+
 
   .about-images:has(.about-image-wrapper.interactive:hover)
     .about-image-wrapper:first-child {
@@ -302,49 +404,77 @@
   }
 }
 
+
 /* ========================================
    MOBILE
 ======================================== */
 
 @media (max-width: 768px) {
+
   .about {
+    width: 100%;
+
     min-height: auto;
 
-    padding: 100px 24px;
+    padding: 80px 24px;
 
+    display: flex;
+
+    justify-content: center;
     align-items: flex-start;
   }
 
-  .about-content {
-    display: flex;
-    flex-direction: column;
 
+  .about-content {
     width: 100%;
     max-width: 600px;
 
     margin: 0 auto;
 
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
     gap: 60px;
   }
+
 
   .about-text {
     width: 100%;
 
+    margin: 0 auto;
+
     align-items: flex-start;
+
     text-align: left;
   }
 
+
+  .about .section-label {
+    width: 100%;
+
+    text-align: left;
+  }
+
+
   .about h2 {
+    width: 100%;
+
     font-size: clamp(2rem, 9vw, 3rem);
 
     text-align: left;
   }
 
+
   .about-text p:not(.section-label) {
+    width: 100%;
+
     font-size: 1rem;
 
     text-align: left;
   }
+
 
   /* ========================================
      MOBILE IMAGE GRID
@@ -353,7 +483,10 @@
   .about-images {
     width: 100%;
 
+    margin: 0 auto;
+
     display: grid;
+
     grid-template-columns: repeat(2, 130px);
 
     justify-content: center;
@@ -362,16 +495,14 @@
     gap: 45px;
   }
 
+
   .about-image-wrapper {
     width: 130px;
     height: 130px;
+
+    margin: 0 auto;
   }
 
-  /*
-    IMPORTANT:
-    Every image stays perfectly centered.
-    No Music/Football offsets.
-  */
 
   .about-image {
     top: 0;
@@ -386,17 +517,21 @@
     transform: translate(0, 0) scale(1);
   }
 
+
   .about-image-wrapper:first-child {
-    transform: scale(1.35);
+    transform: scale(1.25);
   }
+
 
   .about-image-wrapper:first-child:hover {
-    transform: scale(1.35);
+    transform: scale(1.25);
   }
 
+
   .about-image-wrapper.interactive:hover {
-    transform: scale(1.35);
+    transform: scale(1.25);
   }
+
 
   .about-images:has(.about-image-wrapper.interactive:hover)
     .about-image-wrapper:first-child {
@@ -404,15 +539,22 @@
   }
 }
 
+
 /* ========================================
    SMALL MOBILE
 ======================================== */
 
 @media (max-width: 400px) {
+
   .about {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 70px 20px;
   }
+
+
+  .about-content {
+    gap: 50px;
+  }
+
 
   .about-images {
     grid-template-columns: repeat(2, 110px);
@@ -420,11 +562,13 @@
     gap: 40px;
   }
 
+
   .about-image-wrapper {
     width: 110px;
     height: 110px;
   }
 }
+
 
 /* ========================================
    TOUCH DEVICES
@@ -434,28 +578,34 @@
 ======================================== */
 
 @media (hover: none), (pointer: coarse) {
+
   .about-image-wrapper.interactive .about-image {
     transform: translate(0, 0) scale(1) !important;
 
     transition: none;
+
     will-change: auto;
   }
+
 
   .about-image-wrapper.interactive:hover {
     transform: scale(1);
   }
 
+
   .about-images:has(.about-image-wrapper.interactive:hover)
     .about-image-wrapper:first-child {
-    transform: scale(1.35);
+    transform: scale(1.25);
   }
 }
+
 
 /* ========================================
    REDUCED MOTION
 ======================================== */
 
 @media (prefers-reduced-motion: reduce) {
+
   .about-image-wrapper,
   .about-image {
     transition: none;
