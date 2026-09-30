@@ -6,21 +6,33 @@
   width: 100%;
   min-height: 100vh;
 
+  margin: 0;
+
   box-sizing: border-box;
 
   /*
-    Header ≈ 75px
-    + 10px spacing
+    Creates a clean separation from Resume
+    and positions Contact beneath the header.
   */
-  padding: 85px 8% 50px;
+  padding: 100px 8% 60px;
 
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
 
+  /*
+    When #contact is clicked, position the
+    Contact section directly below the header.
+  */
   scroll-margin-top: 75px;
+
+  background: #0d1117;
 }
 
+
+/* ========================================
+   CONTACT CONTENT
+======================================== */
 
 .contact-content {
   width: 100%;
@@ -384,6 +396,7 @@
 
 
 @keyframes contactLinkedinShimmer {
+
   0% {
     left: -100%;
   }
@@ -450,13 +463,18 @@
 
   .contact {
     /*
-      Keep exactly the same vertical position:
-      75px header + 10px gap
+      Extra space above Contact prevents
+      Resume from appearing beneath the
+      translucent mobile/tablet header.
     */
     padding:
-      85px
+      95px
       6%
-      40px;
+      50px;
+
+    scroll-margin-top: 75px;
+
+    background: #0d1117;
   }
 
 
@@ -476,12 +494,16 @@
     min-height: auto;
 
     /*
-      Same 10px spacing beneath header.
+      Same visual separation as tablet.
     */
     padding:
-      85px
+      90px
       24px
-      40px;
+      45px;
+
+    scroll-margin-top: 70px;
+
+    background: #0d1117;
   }
 
 
