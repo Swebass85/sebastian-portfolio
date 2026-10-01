@@ -20,7 +20,7 @@ const projects = [
     ],
     github: "https://github.com/palmebjoerk/matpafarten",
     live: null,
-    video: null,
+    video: "/videos/matpafartenvid.mp4",
   },
 
   {
