@@ -7,9 +7,9 @@ const technicalSkills = [
   { name: "HTML / CSS", value: 90 },
   { name: "Git / GitHub", value: 90 },
   { name: "JavaScript", value: 80 },
-  { name: "Express", value: 70 },
   { name: "React", value: 80 },
   { name: "TypeScript", value: 80 },
+  { name: "Express", value: 70 },
   { name: "Firebase", value: 70 },
   { name: "Node.js", value: 65 },
 ];
