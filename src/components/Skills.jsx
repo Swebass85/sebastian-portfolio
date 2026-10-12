@@ -6,10 +6,10 @@ const technicalSkills = [
   { name: "UX / UI", value: 95 },
   { name: "HTML / CSS", value: 90 },
   { name: "Git / GitHub", value: 90 },
+  { name: "Express", value: 90 },
   { name: "React", value: 80 },
   { name: "TypeScript", value: 80 },
   { name: "JavaScript", value: 70 },
-  { name: "Express", value: 90 },
   { name: "Firebase", value: 70 },
   { name: "Node.js", value: 65 },
 ];
