@@ -62,7 +62,7 @@ const projects = [
     github: "https://github.com/Swebass85/ring-pappa",
     live: "https://ring-pappa.web.app",
     video: null,
-    image: "/videos/ring-pappa-at-twilight.png",
+    image: "/videos/ring-pappa-preview.png",
   },
 
   {
