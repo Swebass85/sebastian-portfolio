@@ -83,6 +83,28 @@ const projects = [
     live: "https://restaurangmelody.se",
     video: "/videos/melodyvid.mp4",
   },
+
+  {
+    number: "05",
+    title: "MediPlan",
+    type: "FULL-STACK PROJECT",
+    description:
+      "MediPlan is a full-stack web application designed to simplify staff scheduling and workforce management in healthcare. It allows administrators to manage nurses, departments, and work shifts through an intuitive dashboard, streamlining scheduling workflows and improving staff allocation.",
+    contribution:
+      "I designed and developed the full-stack application, including the dashboard, staff and department management, shift scheduling workflows, Express routes, database integration, and responsive interface.",
+    technologies: [
+      "Node.js",
+      "Express",
+      "EJS",
+      "JavaScript",
+      "SQLite",
+      "HTML",
+      "CSS",
+    ],
+    github: null,
+    live: null,
+    video: "/videos/mediplan.mp4",
+  },
 ];
 
 function ProjectCard({ project }) {
