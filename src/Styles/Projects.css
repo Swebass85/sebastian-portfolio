@@ -490,7 +490,7 @@
 
 .project-card-ring-pappa .project-image {
   object-fit: cover;
-  object-position: right center;
+  object-position: 70% center;
 }
 
 .project-card-ring-pappa.project-card-with-video::before {
@@ -635,7 +635,7 @@
   }
 
   .project-card-ring-pappa .project-image {
-    object-position: right center;
+    object-position: 70% center;
   }
 }
 
