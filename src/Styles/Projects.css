@@ -475,6 +475,30 @@
 
 
 /* ========================================
+   RING PAPPA PROJECT
+======================================== */
+
+.project-card-ring-pappa .project-video-container {
+  left: auto;
+  right: 0;
+
+  width: 48%;
+  height: 100%;
+
+  background: #050c14;
+}
+
+.project-card-ring-pappa .project-image {
+  object-fit: cover;
+  object-position: right center;
+}
+
+.project-card-ring-pappa.project-card-with-video::before {
+  display: none;
+}
+
+
+/* ========================================
    PROJECTS WITHOUT VIDEO
 ======================================== */
 
@@ -600,6 +624,17 @@
   }
 
   .project-card-mediplan .project-video {
+    object-position: right center;
+  }
+
+  .project-card-ring-pappa .project-video-container {
+    left: auto;
+    right: auto;
+
+    width: 100%;
+  }
+
+  .project-card-ring-pappa .project-image {
     object-position: right center;
   }
 }

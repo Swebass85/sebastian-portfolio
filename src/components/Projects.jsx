@@ -62,6 +62,7 @@ const projects = [
     github: "https://github.com/Swebass85/ring-pappa",
     live: "https://ring-pappa.web.app",
     video: null,
+    image: "/videos/ring-pappa-at-twilight.png",
   },
 
   {
@@ -111,21 +112,30 @@ function ProjectCard({ project }) {
   return (
     <article
       className={`project-card ${
-        project.video ? "project-card-with-video" : ""
-      } ${project.title === "MediPlan" ? "project-card-mediplan" : ""}`}
+        project.video || project.image ? "project-card-with-video" : ""
+      } ${project.title === "MediPlan" ? "project-card-mediplan" : ""}
+      ${project.title === "Ring Pappa" ? "project-card-ring-pappa" : ""}`}
     >
-      {/* VIDEO */}
-      {project.video && (
+      {/* PROJECT MEDIA */}
+      {(project.video || project.image) && (
         <div className="project-video-container">
-          <video
-            className="project-video"
-            src={project.video}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-          />
+          {project.video ? (
+            <video
+              className="project-video"
+              src={project.video}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+            />
+          ) : (
+            <img
+              className="project-video project-image"
+              src={project.image}
+              alt={`${project.title} preview`}
+            />
+          )}
 
           <div className="project-video-fade" />
         </div>
@@ -187,7 +197,7 @@ function ProjectCard({ project }) {
       </div>
 
       {/* PLACEHOLDER FOR PROJECTS WITHOUT VIDEO */}
-      {!project.video && (
+      {!project.video && !project.image && (
         <div className="project-placeholder">
           <span>{project.title}</span>
         </div>
