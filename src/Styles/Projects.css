@@ -471,17 +471,16 @@
 ======================================== */
 
 .project-card-encore .project-video-container {
-  left: 0;
+  left: auto;
   right: 0;
 
-  width: 100%;
+  width: 48%;
   height: 100%;
 }
 
 .project-card-encore .project-video {
   object-fit: cover;
   object-position: right center;
-  transform: none;
 }
 
 
