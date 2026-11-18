@@ -3,45 +3,38 @@ import "../Styles/Projects.css";
 const projects = [
   {
     number: "01",
-    title: "MatPåFarten",
-    type: "TEAM PROJECT",
+    title: "Encore",
+    type: "FULL-STACK PROJECT",
     description:
-      "A modern food ordering application built as part of a collaborative development project. Users can browse restaurants, search and filter food, view product details, and manage their order through a responsive interface.",
+      "Encore is an interactive music platform designed to bring musicians and audiences closer together. The application allows audiences to explore songs, make requests, and engage with live performances in real time, creating a more personalized and dynamic entertainment experience. Built with a focus on intuitive design, seamless interaction, and user engagement, Encore combines modern web technologies with a passion for live music.",
     contribution:
-      "I worked with React components, the search and filtering experience, shopping functionality, responsive styling, and Git-based team workflows using feature branches.",
-    technologies: [
-      "React",
-      "JavaScript",
-      "Vite",
-      "Node.js",
-      "CSS",
-      "Git",
-      "GitHub",
-    ],
-    github: "https://github.com/palmebjoerk/matpafarten",
+      "I designed and developed the interactive music experience, including the audience and performer interfaces, song discovery and requests, real-time interaction, responsive layouts, and application deployment.",
+    technologies: ["React", "JavaScript", "HTML", "CSS"],
+    github: null,
     live: null,
-    video: "/videos/matpafarten.mp4",
+    video: "/videos/encore.mp4",
   },
 
   {
     number: "02",
-    title: "Freaky Fashion",
+    title: "MediPlan",
     type: "FULL-STACK PROJECT",
     description:
-      "A full-stack e-commerce store with products, categories, dynamic searchbar, favorites, shopping cart functionality, authentication, and an administration interface.",
+      "MediPlan is a full-stack web application designed to simplify staff scheduling and workforce management in healthcare. It allows administrators to manage nurses, departments, and work shifts through an intuitive dashboard, streamlining scheduling workflows and improving staff allocation.",
     contribution:
-      "I built both frontend and backend functionality including Express routes, database integration, authentication, sessions, favorites, cart management, search, and administration features.",
+      "I designed and developed the full-stack application, including the dashboard, staff and department management, shift scheduling workflows, Express routes, database integration, and responsive interface.",
     technologies: [
       "Node.js",
       "Express",
       "EJS",
-      "SQLite",
       "JavaScript",
+      "SQLite",
+      "HTML",
       "CSS",
     ],
-    github: "https://github.com/Swebass85/freaky-fashion",
+    github: null,
     live: null,
-    video: "/videos/freakyfashionvid.mp4",
+    video: "/videos/mediplan.mp4",
   },
 
   {
@@ -67,57 +60,51 @@ const projects = [
 
   {
     number: "04",
+    title: "Freaky Fashion",
+    type: "FULL-STACK PROJECT",
+    description:
+      "A full-stack e-commerce store with products, categories, dynamic searchbar, favorites, shopping cart functionality, authentication, and an administration interface.",
+    contribution:
+      "I built both frontend and backend functionality including Express routes, database integration, authentication, sessions, favorites, cart management, search, and administration features.",
+    technologies: [
+      "Node.js",
+      "Express",
+      "EJS",
+      "SQLite",
+      "JavaScript",
+      "CSS",
+    ],
+    github: "https://github.com/Swebass85/freaky-fashion",
+    live: null,
+    video: "/videos/freakyfashionvid.mp4",
+  },
+
+  {
+    number: "05",
     title: "Restaurang Melody",
     type: "CLIENT PROJECT",
     description:
       "A responsive website created for a real restaurant in Vinslöv, Sweden. The website presents the restaurant, menu, opening hours, contact information, and multilingual content.",
     contribution:
       "I designed, developed, deployed, and maintain the website for the client, including responsive layouts, menu presentation, domain configuration, and ongoing updates.",
-    technologies: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "Responsive Design",
-      "Git",
-    ],
+    technologies: ["HTML", "CSS", "JavaScript", "Responsive Design", "Git"],
     github: "https://github.com/Swebass85/restaurangmelody",
     live: "https://restaurangmelody.se",
     video: "/videos/melodyvid.mp4",
   },
 
   {
-    number: "05",
-    title: "MediPlan",
-    type: "FULL-STACK PROJECT",
-    description:
-      "MediPlan is a full-stack web application designed to simplify staff scheduling and workforce management in healthcare. It allows administrators to manage nurses, departments, and work shifts through an intuitive dashboard, streamlining scheduling workflows and improving staff allocation.",
-    contribution:
-      "I designed and developed the full-stack application, including the dashboard, staff and department management, shift scheduling workflows, Express routes, database integration, and responsive interface.",
-    technologies: [
-      "Node.js",
-      "Express",
-      "EJS",
-      "JavaScript",
-      "SQLite",
-      "HTML",
-      "CSS",
-    ],
-    github: null,
-    live: null,
-    video: "/videos/mediplan.mp4",
-  },
-  {
     number: "06",
-    title: "Encore",
-    type: "FULL-STACK PROJECT",
+    title: "MatPåFarten",
+    type: "TEAM PROJECT",
     description:
-      "Encore is an interactive music platform designed to bring musicians and audiences closer together. The application allows audiences to explore songs, make requests, and engage with live performances in real time, creating a more personalized and dynamic entertainment experience. Built with a focus on intuitive design, seamless interaction, and user engagement, Encore combines modern web technologies with a passion for live music.",
+      "A modern food ordering application built as part of a collaborative development project. Users can browse restaurants, search and filter food, view product details, and manage their order through a responsive interface.",
     contribution:
-      "I designed and developed the interactive music experience, including the audience and performer interfaces, song discovery and requests, real-time interaction, responsive layouts, and application deployment.",
-    technologies: ["React", "JavaScript", "HTML", "CSS"],
-    github: null,
+      "I worked with React components, the search and filtering experience, shopping functionality, responsive styling, and Git-based team workflows using feature branches.",
+    technologies: ["React", "JavaScript", "Vite", "Node.js", "CSS", "Git", "GitHub"],
+    github: "https://github.com/palmebjoerk/matpafarten",
     live: null,
-    video: "/videos/encore.mp4",
+    video: "/videos/matpafarten.mp4",
   },
 ];
 
