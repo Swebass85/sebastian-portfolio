@@ -24,18 +24,13 @@
 .resume-container {
   position: relative;
 
-  /*
-    Size primarily from viewport height.
-    This keeps the complete A4 resume visible.
-  */
-  height: calc(100vh - 120px);
-  width: auto;
+  width: min(100%, calc(70.71vh - 84.85px));
+  height: auto;
+  min-width: 0;
+  max-width: 100%;
 
   /* A4 proportions */
   aspect-ratio: 210 / 297;
-
-  /* Horizontal safety margin */
-  max-width: calc(100vw - 80px);
 
   overflow: hidden;
 
@@ -486,9 +481,7 @@
 
 
   .resume-container {
-    height: calc(100vh - 100px);
-
-    max-width: calc(100vw - 60px);
+    width: min(100%, calc(70.71vh - 70.71px));
   }
 
 
@@ -516,16 +509,10 @@
 
 
   .resume-container {
-    /*
-      Mobile screens are narrow, so width
-      becomes the limiting dimension.
-    */
-
-    width: calc(100vw - 36px);
+    width: min(100%, calc(70.71vh - 56.57px));
     height: auto;
 
     max-width: 100%;
-    max-height: calc(100vh - 80px);
 
     aspect-ratio: 210 / 297;
 
@@ -579,9 +566,7 @@
 
 
   .resume-container {
-    width: calc(100vw - 24px);
-
-    max-height: calc(100vh - 60px);
+    width: min(100%, calc(70.71vh - 42.43px));
 
     border-radius: 4px;
   }
@@ -622,7 +607,7 @@
 
 
   .resume-container {
-    height: calc(100vh - 80px);
+    width: min(100%, calc(70.71vh - 56.57px));
   }
 }
 
