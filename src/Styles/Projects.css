@@ -470,7 +470,7 @@
 
 .project-card-mediplan .project-video-fade,
 .project-card-mediplan.project-card-with-video::before {
-  display: none;
+  display: block;
 }
 
 /* ========================================
@@ -494,7 +494,7 @@
 
 .project-card-encore .project-video-fade,
 .project-card-encore.project-card-with-video::before {
-  display: none;
+  display: block;
 }
 
 
@@ -513,13 +513,13 @@
 }
 
 .project-card-ring-pappa .project-image {
-  object-fit: contain;
-  object-position: right center;
-  transform: translateX(18px);
+  object-fit: cover;
+  object-position: center center;
+  transform: none;
 }
 
 .project-card-ring-pappa.project-card-with-video::before {
-  display: none;
+  display: block;
 }
 
 
@@ -649,6 +649,7 @@
   }
 
   .project-card-mediplan .project-video {
+    object-fit: cover;
     object-position: right center;
   }
 
@@ -660,6 +661,7 @@
   }
 
   .project-card-encore .project-video {
+    object-fit: cover;
     object-position: right center;
   }
 
@@ -671,7 +673,9 @@
   }
 
   .project-card-ring-pappa .project-image {
-    object-position: right center;
+    object-fit: cover;
+    object-position: center center;
+    transform: none;
   }
 }
 
