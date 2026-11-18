@@ -112,7 +112,7 @@ function ProjectCard({ project }) {
     <article
       className={`project-card ${
         project.video ? "project-card-with-video" : ""
-      }`}
+      } ${project.title === "MediPlan" ? "project-card-mediplan" : ""}`}
     >
       {/* VIDEO */}
       {project.video && (

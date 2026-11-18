@@ -450,6 +450,31 @@
 
 
 /* ========================================
+   MEDIPLAN PROJECT
+======================================== */
+
+.project-card-mediplan .project-video-container {
+  left: auto;
+  right: 0;
+
+  width: 48%;
+  height: 100%;
+
+  border-left: 1px solid rgba(97, 218, 251, 0.08);
+}
+
+.project-card-mediplan .project-video {
+  object-fit: cover;
+  object-position: 42% center;
+}
+
+.project-card-mediplan .project-video-fade,
+.project-card-mediplan.project-card-with-video::before {
+  display: none;
+}
+
+
+/* ========================================
    PROJECTS WITHOUT VIDEO
 ======================================== */
 
@@ -565,6 +590,17 @@
 
   .project-card-with-video::before {
     display: none;
+  }
+
+  .project-card-mediplan .project-video-container {
+    left: auto;
+    right: auto;
+
+    width: 100%;
+  }
+
+  .project-card-mediplan .project-video {
+    object-position: 42% center;
   }
 }
 
