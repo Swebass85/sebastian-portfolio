@@ -473,6 +473,30 @@
   display: none;
 }
 
+/* ========================================
+   ENCORE PROJECT
+======================================== */
+
+.project-card-encore .project-video-container {
+  left: auto;
+  right: 0;
+
+  width: 48%;
+  height: 100%;
+
+  border-left: 1px solid rgba(97, 218, 251, 0.08);
+}
+
+.project-card-encore .project-video {
+  object-fit: cover;
+  object-position: right center;
+}
+
+.project-card-encore .project-video-fade,
+.project-card-encore.project-card-with-video::before {
+  display: none;
+}
+
 
 /* ========================================
    RING PAPPA PROJECT
@@ -625,6 +649,17 @@
   }
 
   .project-card-mediplan .project-video {
+    object-position: right center;
+  }
+
+  .project-card-encore .project-video-container {
+    left: auto;
+    right: auto;
+
+    width: 100%;
+  }
+
+  .project-card-encore .project-video {
     object-position: right center;
   }
 
