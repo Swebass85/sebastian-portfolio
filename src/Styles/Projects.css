@@ -479,7 +479,7 @@
 
 .project-card-encore .project-video-container {
   left: auto;
-  right: 0;
+  right: -7rem;
 
   width: 48%;
   height: 100%;
@@ -490,6 +490,7 @@
 .project-card-encore .project-video {
   object-fit: cover;
   object-position: right center;
+  transform: translateX(7rem);
 }
 
 .project-card-encore .project-video-fade,
@@ -655,7 +656,7 @@
 
   .project-card-encore .project-video-container {
     left: auto;
-    right: auto;
+    right: 0;
 
     width: 100%;
   }
@@ -663,6 +664,7 @@
   .project-card-encore .project-video {
     object-fit: cover;
     object-position: right center;
+    transform: none;
   }
 
   .project-card-ring-pappa .project-video-container {
