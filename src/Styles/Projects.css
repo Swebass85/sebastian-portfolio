@@ -465,7 +465,7 @@
 
 .project-card-mediplan .project-video {
   object-fit: cover;
-  object-position: 42% center;
+  object-position: right center;
 }
 
 .project-card-mediplan .project-video-fade,
@@ -600,7 +600,7 @@
   }
 
   .project-card-mediplan .project-video {
-    object-position: 42% center;
+    object-position: right center;
   }
 }
 
