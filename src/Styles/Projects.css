@@ -478,24 +478,17 @@
 ======================================== */
 
 .project-card-encore .project-video-container {
-  left: auto;
-  right: -7rem;
+  left: 0;
+  right: 0;
 
-  width: 48%;
+  width: 100%;
   height: 100%;
-
-  border-left: 1px solid rgba(97, 218, 251, 0.08);
 }
 
 .project-card-encore .project-video {
-  object-fit: cover;
+  object-fit: contain;
   object-position: right center;
-  transform: translateX(7rem);
-}
-
-.project-card-encore .project-video-fade,
-.project-card-encore.project-card-with-video::before {
-  display: block;
+  transform: none;
 }
 
 
@@ -662,7 +655,7 @@
   }
 
   .project-card-encore .project-video {
-    object-fit: cover;
+    object-fit: contain;
     object-position: right center;
     transform: none;
   }
